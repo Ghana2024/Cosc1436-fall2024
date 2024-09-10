@@ -48,7 +48,7 @@ int main()// entry point for the program which start with main
       //identifiers
     //int _hours, _1stGrade, no 1stGrade, no first-grade;
     int examGrade, hoursWorked;
-    //std::cout << examgrade
+    //std::cout << examGrade;
     //int exam_grade, hours_worked; Donot Do this
 
     // Types
@@ -63,16 +63,16 @@ int main()// entry point for the program which start with main
     //
 
 
-    short s;
-    int i = 0;
-    long l = 5L;
-    unsigned int ui = 3U;
+   // short s;
+    //int i = 0;
+   // long l = 5L;
+   // unsigned int ui = 3U;
 
     //Float | 4 | E+-38 | precision: 5-7 |
     //double | 8 | E+- 308 | precision: 12-15 (default) |
 
-    double pi = 3.14159F;
-    double largeNumber = 10E100;
+   // double pi = 3.14159F;
+   // double largeNumber = 10E100;
     //Text
     //| char | 1 | -128 to 127 |character
     //| std:: string | * | text |
@@ -120,18 +120,18 @@ int main()// entry point for the program which start with main
     }
    // std::cout << newVariable;
 
-    //sring stuff
+    //string stuff
     //Not a primitive
-    //Does not work outside C++
+    // Does not work outside C++
     std::string message = "Hello";
-    message = message + " World";//concatenate the strings
-    message = message + " " + name;
+    message = message + " World"; //Concatenate the strings
+    message = message + "" + name;
 
     std::string empty;
     empty = empty + "Hello";
 
-    //combination OPerators
-    // V op = E
+    //combination Operatiors
+    //V op =E
     empty += " World"; //empty = empty + " World";
 
     // C++ is strongly typed
@@ -139,25 +139,47 @@ int main()// entry point for the program which start with main
 
     //Type inferencing (C++11)
     //auto ::= complier figures it out
-    //Only usable in variable decls and a few other places
-    // Must use an init expression when declariing the variable
+    //only usable in variable decls and a few other places
+    // Must use an init expression when declaring the veriable
 
     auto payRate = 45.6;
-    //payRate = "45.6";
+    //payRate = "45.8";
     double averagePayRate = 40 / payRate;
 
-    //Area of a circle =PI*R2
-   // const double pi = 3.14159;
+    //Area of a circle = PI * R2
+    //Const double pi = 3.14159
     double radius = 10;
 
-    // constant expression = expression that is calculated at comple time, primitive
-    //4+5 * 8 = 44
-    //Literrals are great unless you need them everywhere (constant-expression)
-    //Varibles are better at reuse but may be accidently changed
-    //Const (Constant expression) with name , type and value and read only, primitives
+    //constant expression = expression that is calculated at comple time, primitive
+    // 4+5 * 8 = 44
+    // Literals are great unless you meed them everywhere (constant-expression)
+    //variables are better at use but accidently changed
+    //Const (Constant expression) with name, type and value and read only, primitives
     double area = 3.14159 * radius * radius;
     area = pi * radius * radius;
-    //pi =10; //Error
+    //pi =10' //Error
+
+    //Structure = a group of related data points
+    // Cannot use structs with cout
+    // Prompt user for a point
+
+    //int x, y;
+    //Point pt;
+    Point pt = {0}; //Zero initializes fields //pt.X = 0; pt.Y = 0;
+    std::cout << "Enter X Value: ";
+    pt.X = 5;
+    std::cout << "Enter Y Value: ";
+    pt.Y = 10;
+
+    //(5, 10)
+    std::cout << "(" << "t" << pt.x << "' " << pt.Y << ")";
+
+    //struct assignment is value assignment,all files are copied
+    point pt2 = pt;
+
+
+
+
 
 
     // Structure - a group of related data points
