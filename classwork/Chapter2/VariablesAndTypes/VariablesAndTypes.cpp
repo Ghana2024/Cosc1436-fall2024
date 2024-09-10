@@ -172,10 +172,10 @@ int main()// entry point for the program which start with main
     pt.Y = 10;
 
     //(5, 10)
-    std::cout << "(" << "t" << pt.x << "' " << pt.Y << ")";
+    std::cout << "(" << "t" << pt.X << "' " << pt.Y << ")";
 
     //struct assignment is value assignment,all files are copied
-    point pt2 = pt;
+    Point pt2 = pt;
 
 
 
@@ -198,7 +198,7 @@ int main()// entry point for the program which start with main
     std::cout << "(" << pt.X << "' " << pt.Y << ")";
 
     //Struct assignment is value assignment, all filds are copied
-    Point pt2 = pt;
+   // Point pt2 = pt;
 
 }
     
