@@ -1,20 +1,63 @@
 // GradeCalculator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Program title: Lab1
+//Ghana Dahal
+// COSC 1436 Fall 2024
 
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //Prompt the user for their name and grades.
+    //Enter the user name
+    std::string uname;
+    std::cout << "Please enter your name: " << std::endl;
+    std::cin >> uname;
+    //Entering their lab grade
+    int fLab, sLab, tLab, ftLab;
+    std::cout << "Enter all grades 0 to 100 only" << std::endl;
+    std::cout << "Please enter lab 1: ";
+    std::cin >> fLab;
+    std::cout << "Please enter lab 2: ";
+    std::cin >> sLab;
+    std::cout << "Please enter lab 3: ";
+    std::cin >> tLab;
+    std::cout << "Please enter lab 4: ";
+    std::cin >> ftLab;
+    //Entering their exam grade
+    int fExam, sExam, tExam;
+    std::cout << "Please enter exam 1: ";
+    std::cin >> fExam;
+    std::cout << "Please enter exam 2: ";
+    std::cin >> sExam;
+    std::cout << "Please enter exam 3: ";
+    std::cin >> tExam;
+
+    //Entering their participation and final exam grade
+    int par, final;
+    std::cout << "Please enter participation: ";
+    std::cin >> par;
+    std::cout << "Please enter final exam: ";
+    std::cin >> final;
+
+    //Display the User lab Result
+    std::cout << uname << ", your lab grades are:" << std::endl;
+    std::cout << "Lab 1" << "= " << fLab << std::endl;
+    std::cout << "Lab 2" << "= " << sLab << std::endl;
+    std::cout << "Lab 3" << "= " << tLab << std::endl;
+    std::cout << "Lab 4" << "= " << ftLab << std::endl;
+
+    //Display the User exam Result
+    std::cout << uname << ", your exam grades are:" << std::endl;
+    std::cout << "Exam 1" << "= " << fExam << std::endl;
+    std::cout << "Exam 2" << "= " << sExam << std::endl;
+    std::cout << "Exam 3" << "= " << tExam << std::endl;
+
+    //Display the user other grade
+    std::cout << uname << ", your exam other grades are:" << std::endl;
+    std::cout << "Participation" << "= " << par << std::endl;
+    std::cout << "Final Exam" << "= " << final << std::endl;
+
+
+
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
