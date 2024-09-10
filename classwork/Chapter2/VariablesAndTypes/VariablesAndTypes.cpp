@@ -1,5 +1,14 @@
 #include <iostream>
 // header inject the function
+//Declares a point as an X and Y value
+struct Point
+{
+    //Declares variables -fields
+    //variables inside decl are called fields
+    int X;
+    int Y;
+
+};//For long time complier work
 int main()// entry point for the program which start with main
 {
     // only one function
@@ -21,7 +30,7 @@ int main()// entry point for the program which start with main
     //File paths
     std::cout << "C:\\windows\\temp";
     //std::cout << R"C:\windows\temp";
-    
+
    //variables-named memory location to store data.
 
     //Decalration -tell complier a variable exists
@@ -34,7 +43,7 @@ int main()// entry point for the program which start with main
     int releaseYear = 1990;// initialzer declaration
     int rating = 3, stars = 5;
 
-    
+
     std::cout << length;
       //identifiers
     //int _hours, _1stGrade, no 1stGrade, no first-grade;
@@ -111,6 +120,67 @@ int main()// entry point for the program which start with main
     }
    // std::cout << newVariable;
 
+    //sring stuff
+    //Not a primitive
+    //Does not work outside C++
+    std::string message = "Hello";
+    message = message + " World";//concatenate the strings
+    message = message + " " + name;
 
-} 
+    std::string empty;
+    empty = empty + "Hello";
+
+    //combination OPerators
+    // V op = E
+    empty += " World"; //empty = empty + " World";
+
+    // C++ is strongly typed
+    int number = 10;
+
+    //Type inferencing (C++11)
+    //auto ::= complier figures it out
+    //Only usable in variable decls and a few other places
+    // Must use an init expression when declariing the variable
+
+    auto payRate = 45.6;
+    //payRate = "45.6";
+    double averagePayRate = 40 / payRate;
+
+    //Area of a circle =PI*R2
+   // const double pi = 3.14159;
+    double radius = 10;
+
+    // constant expression = expression that is calculated at comple time, primitive
+    //4+5 * 8 = 44
+    //Literrals are great unless you need them everywhere (constant-expression)
+    //Varibles are better at reuse but may be accidently changed
+    //Const (Constant expression) with name , type and value and read only, primitives
+    double area = 3.14159 * radius * radius;
+    area = pi * radius * radius;
+    //pi =10; //Error
+
+
+    // Structure - a group of related data points
+    // Cannot use structs with cout
+    //Prompt user for a point
+  
+    // int x, y;
+    //Point pt;
+    Point pt = {0}; // Zero initializes fields //pt.X = 0; pt.Y = 0;
+    std::cout << "Enter X value: ";
+    pt.X = 5;
+    std::cout << "Enter Y value: ";
+    pt.Y = 10;
+
+    //(5, 10)
+    std::cout << "(" << pt.X << "' " << pt.Y << ")";
+
+    //Struct assignment is value assignment, all filds are copied
+    Point pt2 = pt;
+
+}
+    
+
+
+ 
  
