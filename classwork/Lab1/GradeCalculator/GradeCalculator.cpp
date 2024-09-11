@@ -57,6 +57,14 @@ int main()
     std::cout << "Participation" << "= " << par << std::endl;
     std::cout << "Final Exam" << "= " << final << std::endl;
 
+    //Display the user name with lab and exam averages with 2 decimal place
+    int avgLab, avgExam;
+    avgLab = ( fLab + sLab + tLab + ftLab ) / 4;
+    avgExam = ( fExam, sExam, tExam ) / 3;
+    std::cout << uname << ", your exam other grades are:" << std::endl;
+    std::cout << "Lab Average " << "=" << avgLab << "%" << std::endl;
+    std::cout << "Exam Average" << "=" << avgExam << "%" << std::endl;
+
 
 
 
