@@ -34,9 +34,9 @@ int main()
     std::cin >> tExam;
 
     //Entering their participation and final exam grade
-    double par, final;
+    double part, final;
     std::cout << "Please enter participation: ";
-    std::cin >> par;
+    std::cin >> part;
     std::cout << "Please enter final exam: ";
     std::cin >> final;
 
@@ -55,17 +55,24 @@ int main()
 
     //Display the user other grade
     std::cout << uname << ", your exam other grades are:" << std::endl;
-    std::cout << "Participation" << "= " << par << std::endl;
+    std::cout << "Participation" << "= " << part << std::endl;
     std::cout << "Final Exam" << "= " << final << std::endl;
 
     //Display the user name with lab and exam averages with 2 decimal place
-    float avgLab; 
-    float avgExam;
-    avgLab = ( fLab + sLab + tLab + ftLab ) / 4;
-    avgExam = ( fExam + sExam + tExam ) / 3;
+    float avgLab, avgExam, avgClass;
+    avgLab = (fLab + sLab + tLab + ftLab) / 4;
+    avgExam = (fExam + sExam + tExam) / 3;
+
+    avgClass = (avgLab + avgExam) / 2;
+
     std::cout << uname << ", your exam other grades are:" << std::endl;
-    std::cout << "Lab Average (65%) " << "= " << std::setprecision(2) << avgLab << "%" << std::endl;
-    std::cout << "Exam Average (20%) " << "= " << std::setprecision(2) << avgExam << "%" << std::endl;
+    std::cout << "Lab Average (65%) " << "= " << avgLab << std::setprecision(2) << "%" << std::endl;
+    std::cout << "Exam Average (20%) " << "= " << avgExam << std::setprecision(2) << "%" << std::endl;
+    std::cout << "Participation (5%) " << "= " << part << "%" << std::endl;
+    std::cout << "Final Exam (10%) " << "= " << final << "%" << std::endl;
+    std::cout << "Class Average " << "= " << avgClass << std::setprecision(2) << "%" << std::endl;
+
+
 
 
 
