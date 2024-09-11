@@ -4,6 +4,7 @@
 // COSC 1436 Fall 2024
 
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
     std::cout << "Please enter your name: " << std::endl;
     std::cin >> uname;
     //Entering their lab grade
-    int fLab, sLab, tLab, ftLab;
+    double fLab, sLab, tLab, ftLab;
     std::cout << "Enter all grades 0 to 100 only" << std::endl;
     std::cout << "Please enter lab 1: ";
     std::cin >> fLab;
@@ -24,7 +25,7 @@ int main()
     std::cout << "Please enter lab 4: ";
     std::cin >> ftLab;
     //Entering their exam grade
-    int fExam, sExam, tExam;
+    double fExam, sExam, tExam;
     std::cout << "Please enter exam 1: ";
     std::cin >> fExam;
     std::cout << "Please enter exam 2: ";
@@ -33,7 +34,7 @@ int main()
     std::cin >> tExam;
 
     //Entering their participation and final exam grade
-    int par, final;
+    double par, final;
     std::cout << "Please enter participation: ";
     std::cin >> par;
     std::cout << "Please enter final exam: ";
@@ -58,12 +59,13 @@ int main()
     std::cout << "Final Exam" << "= " << final << std::endl;
 
     //Display the user name with lab and exam averages with 2 decimal place
-    int avgLab, avgExam;
+    float avgLab; 
+    float avgExam;
     avgLab = ( fLab + sLab + tLab + ftLab ) / 4;
-    avgExam = ( fExam, sExam, tExam ) / 3;
+    avgExam = ( fExam + sExam + tExam ) / 3;
     std::cout << uname << ", your exam other grades are:" << std::endl;
-    std::cout << "Lab Average " << "=" << avgLab << "%" << std::endl;
-    std::cout << "Exam Average" << "=" << avgExam << "%" << std::endl;
+    std::cout << "Lab Average (65%) " << "= " << std::setprecision(2) << avgLab << "%" << std::endl;
+    std::cout << "Exam Average (20%) " << "= " << std::setprecision(2) << avgExam << "%" << std::endl;
 
 
 
