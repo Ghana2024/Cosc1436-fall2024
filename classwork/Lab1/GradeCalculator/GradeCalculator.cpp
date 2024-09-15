@@ -69,22 +69,12 @@ int main()
     std::cout << std::endl;
 
     //Display the user name with lab and exam averages with 2 decimal place
-    double avgLab, avgExam;
-    avgLab = (fLab + sLab + tLab + fthLab) / 4.0;
-    avgExam = (fExam + sExam + tExam) / 3.0;
+    float avgLab, avgExam, avgClass;
+    avgLab = (fLab + sLab + tLab + ftLab) / 4;
+    avgExam = (fExam + sExam + tExam) / 3;
 
-    //Calculation of Percentage Average for Average Lab, Average Eaxm, participation, Final.
-    double percentAvgLab, percentAvgExam, percentParticipation, percentFinal;
-    percentAvgLab = avgLab * (65.0 / 100);
-    percentAvgExam = avgExam * (20.0 / 100);
-    percentParticipation = part * ( 5.0 / 100);
-    percentFinal = final * (10.0 / 100);
+    avgClass = (avgLab + avgExam) / 2;
 
-    //Calculation 
-    double avgClass = (percentAvgLab + percentAvgExam + percentParticipation + percentFinal);
-
-  
-    // Display all Percentage Lab Average, Exam Average, Participation, Final Exam and Class Average 
     std::cout << uname << ", your exam other grades are:" << std::endl;
     std::cout << "Lab Average (65%) " << "= " << std::fixed << std:: setprecision(2) << avgLab << "%" << std::endl;
     std::cout << "Exam Average (20%) " << "= " << std:: setprecision(2) << avgExam << "%" << std::endl;
