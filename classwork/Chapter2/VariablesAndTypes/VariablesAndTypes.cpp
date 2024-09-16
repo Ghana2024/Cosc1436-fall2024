@@ -136,6 +136,8 @@ int main()// entry point for the program which start with main
 
     // C++ is strongly typed
     int number = 10;
+ 
+
 
     //Type inferencing (C++11)
     //auto ::= complier figures it out
