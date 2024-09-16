@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+
 
 int main()
 {
@@ -18,67 +18,67 @@ int main()
     std::cout << std::endl;
    
     //Entering their lab grade
-    int fLab, sLab, tLab, fthLab;
+    int firstLab, secondLab, thirdLab, fourthLab;
     std::cout << "Enter all grades 0 to 100 only" << std::endl;
     std::cout << "Please enter lab 1: ";
-    std::cin >> fLab;
+    std::cin >> firstLab;
     std::cout << "Please enter lab 2: ";
-    std::cin >> sLab;
+    std::cin >> secondLab;
     std::cout << "Please enter lab 3: ";
-    std::cin >> tLab;
+    std::cin >> thirdLab;
     std::cout << "Please enter lab 4: ";
-    std::cin >> fthLab;
+    std::cin >> fourthLab;
     std::cout << std::endl;
    
     //Entering their exam grade
-    int fExam, sExam, tExam;
+    int firstExam, secondExam, thirdExam;
     std::cout << "Please enter exam 1: ";
-    std::cin >> fExam;
+    std::cin >> firstExam;
     std::cout << "Please enter exam 2: ";
-    std::cin >> sExam;
+    std::cin >> secondExam;
     std::cout << "Please enter exam 3: ";
-    std::cin >> tExam;
+    std::cin >> thirdExam;
     std::cout << std::endl;
 
     //Entering their participation and final exam grade
-    int part, final;
+    int participate, final;
     std::cout << "Please enter participation: ";
-    std::cin >> part;
+    std::cin >> participate;
     std::cout << "Please enter final exam: ";
     std::cin >> final;
     std::cout << std::endl;
 
     //Display the User lab Result
     std::cout << uname << ", your lab grades are:" << std::endl;
-    std::cout << "Lab 1" << " = " << fLab << std::endl;
-    std::cout << "Lab 2" << " = " << sLab << std::endl;
-    std::cout << "Lab 3" << " = " << tLab << std::endl;
-    std::cout << "Lab 4" << " = " << fthLab << std::endl;
+    std::cout << "Lab 1" << " = " << firstLab << std::endl;
+    std::cout << "Lab 2" << " = " << secondLab << std::endl;
+    std::cout << "Lab 3" << " = " << thirdLab << std::endl;
+    std::cout << "Lab 4" << " = " << fourthLab << std::endl;
     std::cout << std::endl;
 
     //Display the User exam Result
     std::cout << uname << ", your exam grades are:" << std::endl;
-    std::cout << "Exam 1" << " = " << fExam << std::endl;
-    std::cout << "Exam 2" << " = " << sExam << std::endl;
-    std::cout << "Exam 3" << " = " << tExam << std::endl;
+    std::cout << "Exam 1" << " = " << firstExam << std::endl;
+    std::cout << "Exam 2" << " = " << secondExam << std::endl;
+    std::cout << "Exam 3" << " = " << thirdExam << std::endl;
     std::cout << std::endl;
 
     //Display the user other grade
     std::cout << uname << ", your exam other grades are:" << std::endl;
-    std::cout << "Participation" << " = " << part << std::endl;
+    std::cout << "Participation" << " = " << participate << std::endl;
     std::cout << "Final Exam" << " = " << final << std::endl;
     std::cout << std::endl;
 
     //Display the user name with lab and exam averages with 2 decimal place
     double avgLab, avgExam;
-    avgLab = (fLab + sLab + tLab + fthLab) / 4.0;
-    avgExam = (fExam + sExam + tExam) / 3.0;
+    avgLab = (firstLab + secondLab + thirdLab + fourthLab) / 4.0;
+    avgExam = (firstExam + secondExam + thirdExam) / 3.0;
 
     //Adjust the Average Class Calculation based on percentage of each grade
     double avgPercentLab, avgPercentExam, percentParticipation, percentFinal;
     avgPercentLab = avgLab * (65.0 / 100);
     avgPercentExam = avgExam * (20.0 / 100);
-    percentParticipation = part * (5.0 / 100);
+    percentParticipation = participate * (5.0 / 100);
     percentFinal = avgLab * (10.0 / 100);
 
     //Calculation of Class Average
@@ -89,7 +89,7 @@ int main()
     std::cout << uname << ", your exam other grades are:" << std::endl;
     std::cout << "Lab Average (65%) " << "= " << std::fixed << std:: setprecision(2) << avgLab << "%" << std::endl;
     std::cout << "Exam Average (20%) " << "= " << std:: setprecision(2) << avgExam << "%" << std::endl;
-    std::cout << "Participation (5%) " << "= " << part << "%" << std::endl;
+    std::cout << "Participation (5%) " << "= " << participate << "%" << std::endl;
     std::cout << "Final Exam (10%) " << "= " << final << "%" << std::endl;
     std::cout << "Class Average " << "= " << std::fixed << std::setprecision(2) << avgClass  << "%" << std::endl;
 
