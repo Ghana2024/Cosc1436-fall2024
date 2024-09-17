@@ -10,6 +10,10 @@
 
 int main()
 {
+    std::cout << " Program title:Lab1\n";
+    std::cout << " Ghana Dahal \n";
+    std::cout << " COSC 1436 Fall 2024 \n";
+    std::cout << std::endl;
     //Prompt the user for their name and grades.
     //Enter the user name
     std::string uname;
@@ -79,7 +83,7 @@ int main()
     avgPercentLab = avgLab * (65.0 / 100);
     avgPercentExam = avgExam * (20.0 / 100);
     percentParticipation = participate * (5.0 / 100);
-    percentFinal = avgLab * (10.0 / 100);
+    percentFinal = final * (10.0 / 100);
 
     //Calculation of Class Average
     double avgClass = avgPercentLab + avgPercentExam + percentParticipation + percentFinal;
