@@ -131,6 +131,7 @@ int main()// entry point for the program which start with main
     empty = empty + "Hello";
 
     //combination Operatiors
+    // 
     //V op =E
     empty += " World"; //empty = empty + " World";
 
@@ -158,7 +159,7 @@ int main()// entry point for the program which start with main
     //variables are better at use but accidently changed
     //Const (Constant expression) with name, type and value and read only, primitives
     double area = 3.14159 * radius * radius;
-    area = pi * radius * radius;
+   // area = pi * radius * radius;
     //pi =10' //Error
 
     //Structure = a group of related data points
@@ -190,7 +191,7 @@ int main()// entry point for the program which start with main
   
     // int x, y;
     //Point pt;
-    Point pt = {0}; // Zero initializes fields //pt.X = 0; pt.Y = 0;
+   // Point pt = {0}; // Zero initializes fields //pt.X = 0; pt.Y = 0;
     std::cout << "Enter X value: ";
     pt.X = 5;
     std::cout << "Enter Y value: ";
