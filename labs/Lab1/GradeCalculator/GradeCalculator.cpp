@@ -88,10 +88,10 @@ int main()
     // Display all the final result 
     std::cout << uname << ", your exam other grades are:" << std::endl;
     std::cout << "Lab Average (65%) " << "= " << std::fixed << std:: setprecision(2) << avgLab << "%" << std::endl;
-    std::cout << "Exam Average (20%) " << "= " << std:: setprecision(2) << avgExam << "%" << std::endl;
+    std::cout << "Exam Average (20%) " << "= " << std::setprecision(2) << avgExam << "%" << std::endl;
     std::cout << "Participation (5%) " << "= " << participate << "%" << std::endl;
     std::cout << "Final Exam (10%) " << "= " << final << "%" << std::endl;
-    std::cout << "Class Average " << "= " << std::fixed << std::setprecision(2) << avgClass  << "%" << std::endl;
+    std::cout << "Class Average " << "= " << avgClass  << "%" << std::endl;
 
 
 
