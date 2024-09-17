@@ -201,7 +201,7 @@ int main()// entry point for the program which start with main
     std::cout << "(" << pt.X << "' " << pt.Y << ")";
 
     //Struct assignment is value assignment, all filds are copied
-   // Point pt2 = pt;
+    //Point pt2 = pt;
 
 }
     
