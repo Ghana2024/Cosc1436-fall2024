@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 
 int main()
@@ -18,30 +19,30 @@ int main()
     //Enter the user name
     std::string uname;
     std::cout << "Please enter your name: ";
-    std::cin >> uname;
+    std:getline(std::cin, uname);
     std::cout << std::endl;
    
     //Entering their lab grade
-    int firstLab, secondLab, thirdLab, fourthLab;
+    int lab1Grade, lab2Grade, lab3Grade, lab4Grade;
     std::cout << "Enter all grades 0 to 100 only" << std::endl;
     std::cout << "Please enter lab 1: ";
-    std::cin >> firstLab;
+    std::cin >> lab1Grade;
     std::cout << "Please enter lab 2: ";
-    std::cin >> secondLab;
+    std::cin >> lab2Grade;
     std::cout << "Please enter lab 3: ";
-    std::cin >> thirdLab;
+    std::cin >> lab3Grade;
     std::cout << "Please enter lab 4: ";
-    std::cin >> fourthLab;
+    std::cin >> lab4Grade;
     std::cout << std::endl;
    
     //Entering their exam grade
-    int firstExam, secondExam, thirdExam;
+    int exam1Grade, exam2Grade, exam3Grade;
     std::cout << "Please enter exam 1: ";
-    std::cin >> firstExam;
+    std::cin >> exam1Grade;
     std::cout << "Please enter exam 2: ";
-    std::cin >> secondExam;
+    std::cin >> exam2Grade;
     std::cout << "Please enter exam 3: ";
-    std::cin >> thirdExam;
+    std::cin >> exam3Grade;
     std::cout << std::endl;
 
     //Entering their participation and final exam grade
@@ -54,17 +55,17 @@ int main()
 
     //Display the User lab Result
     std::cout << uname << ", your lab grades are:" << std::endl;
-    std::cout << "Lab 1" << " = " << firstLab << std::endl;
-    std::cout << "Lab 2" << " = " << secondLab << std::endl;
-    std::cout << "Lab 3" << " = " << thirdLab << std::endl;
-    std::cout << "Lab 4" << " = " << fourthLab << std::endl;
+    std::cout << "Lab 1" << " = " << lab1Grade << std::endl;
+    std::cout << "Lab 2" << " = " << lab2Grade << std::endl;
+    std::cout << "Lab 3" << " = " << lab3Grade << std::endl;
+    std::cout << "Lab 4" << " = " << lab4Grade << std::endl;
     std::cout << std::endl;
 
     //Display the User exam Result
     std::cout << uname << ", your exam grades are:" << std::endl;
-    std::cout << "Exam 1" << " = " << firstExam << std::endl;
-    std::cout << "Exam 2" << " = " << secondExam << std::endl;
-    std::cout << "Exam 3" << " = " << thirdExam << std::endl;
+    std::cout << "Exam 1" << " = " << exam1Grade << std::endl;
+    std::cout << "Exam 2" << " = " << exam2Grade << std::endl;
+    std::cout << "Exam 3" << " = " << exam3Grade << std::endl;
     std::cout << std::endl;
 
     //Display the user other grade
@@ -75,8 +76,8 @@ int main()
 
     //Display the user name with lab and exam averages with 2 decimal place
     double avgLab, avgExam;
-    avgLab = (firstLab + secondLab + thirdLab + fourthLab) / 4.0;
-    avgExam = (firstExam + secondExam + thirdExam) / 3.0;
+    avgLab = (lab1Grade + lab2Grade + lab3Grade + lab4Grade) / 4.0;
+    avgExam = (exam1Grade + exam2Grade + exam3Grade) / 3.0;
 
     //Adjust the Average Class Calculation based on percentage of each grade
     double avgPercentLab, avgPercentExam, percentParticipation, percentFinal;
