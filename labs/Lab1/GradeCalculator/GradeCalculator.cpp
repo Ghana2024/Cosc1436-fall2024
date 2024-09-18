@@ -11,7 +11,8 @@
 
 int main()
 {
-    std::cout << " Program title:Lab1\n";
+    //Display Program Title, My Name, Course and Semester
+    std::cout << " Program title:Lab 1 \n";
     std::cout << " Ghana Dahal \n";
     std::cout << " COSC 1436 Fall 2024 \n";
     std::cout << std::endl;
@@ -25,6 +26,7 @@ int main()
     //Entering their lab grade
     int lab1Grade, lab2Grade, lab3Grade, lab4Grade;
     std::cout << "Enter all grades 0 to 100 only" << std::endl;
+    std::cout << std::endl;
     std::cout << "Please enter lab 1: ";
     std::cin >> lab1Grade;
     std::cout << "Please enter lab 2: ";
@@ -91,7 +93,7 @@ int main()
 
   
     // Display all the final result 
-    std::cout << uname << ", your exam other grades are:" << std::endl;
+    std::cout << uname << ", your class grade is:" << std::endl;
     std::cout << "Lab Average (65%) " << "= " << std::fixed << std:: setprecision(2) << avgLab << "%" << std::endl;
     std::cout << "Exam Average (20%) " << "= " << std::setprecision(2) << avgExam << "%" << std::endl;
     std::cout << "Participation (5%) " << "= " << participate << "%" << std::endl;
