@@ -179,30 +179,29 @@ int main()
 
     for (int i = 1; i <= 12; ++i)
     {
-        
+        //cout << left << setw(8) << "Month " << setw(10) << "   Balance " << setw(10) << "  Payment " << setw(6) << "   Interest" << setw(12) << "    New Balance " << endl;
+        //cout << setw(60) << setfill('-') << "" << setfill(' ') << endl;
+       
         double interest = bal * (intRate / 100);
         double paidAmount = payAmount + interest;
         cout << fixed << setprecision(2);
-        //cout << setw(10) << i << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
-
+        cout << setw(10) << i << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
         double newBalance = bal;
-        while(newBalance)
+        while (newBalance)
         {
         //    //double interest = bal * (intRate / 100);
         //    //double paidAmount = payAmount + interest;
             newBalance = bal - paidAmount;
-            cin >> newBalance;
-
-        //    
+           // cin >> newBalance;    
             cout << setw(10) << i << "$  " << setw(10) << newBalance << "$  " << setw(10) << payAmount << "$  " << setw(10) << "0.00" << "$  " << setw(10) << newBalance << endl;
         //    //cout << setw(8) << "Sue" << setw(6) << 98.543 << setw(6) << "A" << endl;
         //    //cout << setw(8) << "Jim" << setw(6) << 84.567 << setw(6) << "B" << endl;
         //    //cout << setw(8) << "Jan" << setw(6) << 78.987 << setw(6) << "C" << endl;
-            ++newBalance;
-        }
-       
+          //  newBalance -1;
+        };
+        break;
     }
-    return 0;
+    //return 0;
 
     //double initialValue = 100000; // Initial value
     //double yearlyReductionPercentage = 25; // Yearly reduction percentage
