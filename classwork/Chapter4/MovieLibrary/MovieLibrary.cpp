@@ -83,9 +83,52 @@ int main()
         cout << "Enter a title: ";
         getline(cin, movie.Title);
     };
+    //Get run length, at least 0. minutes
+    cout << " Enter run length( in Minutes):";
+    cin >> movie.RunLength;
+    
+    if (movie.RunLength < 0)
+    {
+        cout << "ERROR: Run length must be at least 0" << endl;
+
+        cout << "Enter run length (in minutes): ";
+        cin >> movie.RunLength;
+    };
+    // Get release year, at least 1900
+    cout << " Enter release year(1900+):";
+    cin >> movie.ReleaseYear;
+
+    if (movie.ReleaseYear < 1900)
+    {
+        cout << "ERROR: Release Year must be at least 1900" << endl;
+
+        cout << "Enter Release Year (1900+): ";
+        cin >> movie.ReleaseYear;
+    };
+    // Get the Optinal Description
+    cout << "Enter optional Description:";
+    cin.ignore();
+    getline(cin, movie.Description);
+
+    //Get Is Classic
+    char isClassic;
+    cout << "Is this a classic (Y?N)";
+    cin >> isClassic;
+
+    if (isClassic == 'Y')
+        movie.IsClassic = true;
+    if (isClassic == 'y')
+        movie.IsClassic = true;
+    if (isClassic == 'N')
+        movie.IsClassic = false;
+    if (isClassic == 'n')
+        movie.IsClassic = false;
 
     // display movie details
     cout << "-------------------" << endl;
-    cout << movie.Title << endl;
+    cout << movie.Title << "(" << movie.ReleaseYear << ")" << endl;
+    cout << "Run Length (mins) " << movie.RunLength << endl;
+    cout << "Is Classic? " << movie.IsClassic << endl;
+    cout << movie.Description << endl;
 }
 
