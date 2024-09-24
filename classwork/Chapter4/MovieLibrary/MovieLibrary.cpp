@@ -88,19 +88,38 @@ int main()
     cin >> movie.RunLength;
     
     if (movie.RunLength < 0)
+    //{
+    //    //Look at additinal stuff .....
+    //    if (movie.RunLength < 0)
+    //    {
+    //        cout << "ERROR: Run length must be at least 0" << endl;
+
+    //        cout << "Enter run length (in minutes): ";
+    //        cin >> movie.RunLength;
+    //    };
+    //}
+    // else if (movie.RunLength > 1440)
+    //{
+    //    cout << "ERROR: Run length cannot be greater than a day " << endl;
+
+    //    cout << "Enter run length (in minutes): ";
+    //    cin >> movie.RunLength;
+    //};
+     if (movie.RunLength < 0 || movie.RunLength > 1440)
     {
-        cout << "ERROR: Run length must be at least 0" << endl;
+        cout << "ERROR: Run length must be between 0 and 1440. " << endl;
 
         cout << "Enter run length (in minutes): ";
         cin >> movie.RunLength;
     };
+    
     // Get release year, at least 1900
     cout << " Enter release year(1900+):";
     cin >> movie.ReleaseYear;
 
-    if (movie.ReleaseYear < 1900)
+    if (movie.ReleaseYear < 1900 || movie.ReleaseYear > 2100)
     {
-        cout << "ERROR: Release Year must be at least 1900" << endl;
+        cout << "ERROR: Release Year must be between 1900 and 2100" << endl;
 
         cout << "Enter Release Year (1900+): ";
         cin >> movie.ReleaseYear;
@@ -115,20 +134,52 @@ int main()
     cout << "Is this a classic (Y?N)";
     cin >> isClassic;
 
-    if (isClassic == 'Y')
+    //if (isClassic == 'Y')
+    //    movie.IsClassic = true;
+    //else if (isClassic == 'y')
+    //    movie.IsClassic = true;
+    //else if (isClassic == 'N')
+    //    movie.IsClassic = false;
+    //else if (isClassic == 'n')
+    //    movie.IsClassic = false;
+
+    if (isClassic == 'Y' || isClassic =='y')
         movie.IsClassic = true;
-    if (isClassic == 'y')
-        movie.IsClassic = true;
-    if (isClassic == 'N')
-        movie.IsClassic = false;
-    if (isClassic == 'n')
-        movie.IsClassic = false;
+    else if (isClassic == 'N' || isClassic == 'n')
+         movie.IsClassic = false;
+    else
+    {
+        cout << "ERROE: You must enter Y or N";
+        cout << "Is this a classic (Y/N)? ";
+        cin >> isClassic;
+    };
+       
 
     // display movie details
     cout << "-------------------" << endl;
     cout << movie.Title << "(" << movie.ReleaseYear << ")" << endl;
     cout << "Run Length (mins) " << movie.RunLength << endl;
     cout << "Is Classic? " << movie.IsClassic << endl;
+    string classicIndicator;
+    if (movie.IsClassic)
+        classicIndicator = "Yes";
+    else
+        classicIndicator = "No";
+    cout << "IS Classic?" << classicIndicator << endl;
+    //Better but longer form -2
+
+   /* if (movie.IsClassic)
+        cout << "Is Classic? Yes" << endl;
+    else
+        cout << "Is Classic? No" << endl;*/
+
+    //shorter form using conditional operator => Eb ? Et : Ef
+    string classicIndictor = movie.IsClassic ? "Yes" : "No";
+    cout << "Is Classic?" << classicIndicator << endl;
+
+    if (movie.Description !="")
     cout << movie.Description << endl;
+
+    cout << "-------------------" << endl;
 }
 
