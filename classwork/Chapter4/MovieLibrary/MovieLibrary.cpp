@@ -23,6 +23,16 @@ struct Movie
     bool IsClassic;
 };
 
+//to create small value for switch
+enum Menuommand
+{
+    MC_AddMovie,
+    MC_EditMovie,
+    MC_DeleteMovie,
+    MC_ViewMovie,
+
+};
+
 int main()
 {
    // //Relational demo
@@ -66,6 +76,46 @@ int main()
    
     //Decision making - IF statement
     // if-stmt :: = if (Eb) S
+
+    //Show menu
+    cout << "Movie Library" << endl;
+    cout << "______________" << endl;
+    cout << "A)dd Movie" << endl;
+    cout << "E)dit Movie" << endl;
+    cout << "D)elete Movie" << endl;
+    cout << "V)iew Movie" << endl;
+
+    // Get input
+    char input;
+    cin >> input;
+    MenuCommand menuCommand;
+    //int menuCommand;
+    switch (input)
+    {
+        case 'A':
+        case 'a': menuCommand =1; break;
+
+        case 'E':
+        case 'e': menuCommand = 2; break;
+
+        case 'D':
+        case 'd': menuCommand = 3; break;
+
+        case 'V':
+        case 'v': menuCommand = 4; break;
+
+        default: cout << "Bad input" << endl; break;
+    };
+    //Handle menu Command
+    switch (menuCommand)
+    {
+        case MenuCommand::MV_AddMovie;
+        case  MenuCommand::MV_EditMovie:
+        case  MenuCommand::MV_DeleteMovie:
+        case  MenuCommand::MV_ViewMovie: cout << "Not implemented" << endl;break;
+    };
+
+
 
     //Add a new movie
     //Create a new Movie
@@ -143,7 +193,7 @@ int main()
     //else if (isClassic == 'n')
     //    movie.IsClassic = false;
 
-    if (isClassic == 'Y' || isClassic =='y')
+    /*if (isClassic == 'Y' || isClassic =='y')
         movie.IsClassic = true;
     else if (isClassic == 'N' || isClassic == 'n')
          movie.IsClassic = false;
@@ -152,8 +202,33 @@ int main()
         cout << "ERROE: You must enter Y or N";
         cout << "Is this a classic (Y/N)? ";
         cin >> isClassic;
-    };
+    };*/
        
+    //switch (Select) Statement -replacement for if-elseif where same expression compared to multiple values
+    //1. Must compare a single expression to one or more constant values with equality
+    //2. Switch expression must be an intergral type //can use chararcer but lateral
+    //3. Each case label must be a complier-time constant expression
+    //4. Each case label must be unique Example Case 
+    switch (isClassic)
+    {
+        //case 'Y':movie.IsClassic = true; break;
+        //case 'y':movie.IsClassic = true;  break;
+            //OR
+            //Fall through works same lanuage is in the next case can be written
+        case 'Y':
+        case 'y':movie.IsClassic = true;  break;
+
+        case 'N':movie.IsClassic = false;  break;
+        case 'n':movie.IsClassic = false;  break;
+        //else condition doesnot match then
+        default:
+        {
+            cout << "ERROE: You must enter Y or N";
+            cout << "Is this a classic (Y/N)? ";
+            cin >> isClassic;
+        };
+    };
+
 
     // display movie details
     cout << "-------------------" << endl;
@@ -161,11 +236,12 @@ int main()
     cout << "Run Length (mins) " << movie.RunLength << endl;
     cout << "Is Classic? " << movie.IsClassic << endl;
     string classicIndicator;
-    if (movie.IsClassic)
-        classicIndicator = "Yes";
-    else
-        classicIndicator = "No";
-    cout << "IS Classic?" << classicIndicator << endl;
+    //Long form -1
+    //if (movie.IsClassic)
+     //   classicIndicator = "Yes";
+    //else
+    //    classicIndicator = "No";
+   // cout << "IS Classic?" << classicIndicator << endl;
     //Better but longer form -2
 
    /* if (movie.IsClassic)
@@ -174,9 +250,12 @@ int main()
         cout << "Is Classic? No" << endl;*/
 
     //shorter form using conditional operator => Eb ? Et : Ef
-    string classicIndictor = movie.IsClassic ? "Yes" : "No";
-    cout << "Is Classic?" << classicIndicator << endl;
+  //  string classicIndictor = movie.IsClassic ? "Yes" : "No";
+    //cout << "Is Classic?" << classicIndicator << endl;
 
+    //shortest form conditional Operatot => Eb ? Et : Ef
+    //Et & Ef =must be the exact same type, type coercion is not allowed
+    cout <<"Is classic?" << (movie.IsClassic ? "Yes": "No") << endl;
     if (movie.Description !="")
     cout << movie.Description << endl;
 
