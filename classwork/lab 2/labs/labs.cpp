@@ -34,18 +34,55 @@ int main()
     double intRate;
     cin >> intRate;
     cout << endl;
-    cout << "How much do you want to pay each month? ";
     double payAmount;
-    cin >> payAmount;
-    int months = 1;
-   // cout << "Enter number of months: ";
-    //cin >> months;
+    int month = 1;
+   
+
+
+
+    do {
+        cout << "How much do you want to pay each month? ";
+        cin >> payAmount;
+        if (payAmount <= 0) {
+            cout << "That is an invalid value. ";
+        }
+    } while (payAmount <= 0);
+
 
     cout << left << setw(8) << "Month " << setw(10) << "   Balance " << setw(10) << "  Payment " << setw(6) << "   Interest" << setw(12) << "    New Balance " << endl;
     cout << setw(60) << setfill('-') << "" << setfill(' ') << endl;
-    cout << setw(10) << months << "$  " << setw(10) << bal << "$  " << setw(10) << "0.00" << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
-    int numberofPayment = 12;
-     double remainBalance = bal;
+    cout << setw(10) << month << "$  " << setw(10) << bal << "$  " << setw(10) << "0.00" << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
+
+    
+    // Calculate and display monthly details
+    while (bal > 0 || month <= 12) {
+        double interest = (bal * (intRate / 100));
+        double principal = payAmount - interest;
+        bal -= principal;
+
+        if (bal < 0 && month >2) {
+            principal += bal;
+            bal = 0;
+        }
+        cout << fixed << setprecision(2);
+       cout << setw(10) << month << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << principal << endl;
+
+        
+        month++;
+    }
+
+    return 0;
+};
+
+     
+     
+     
+     
+     
+     
+  /*
+     
+     
      for (int month = months + 1; month <= 12 ; ++month)
      {
       
@@ -143,5 +180,7 @@ int main()
 //
 //
 //    return 0;
-//}
-//
+*/
+
+
+
