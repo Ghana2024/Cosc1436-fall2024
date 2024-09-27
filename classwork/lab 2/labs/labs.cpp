@@ -55,8 +55,9 @@ int main()
 
     
     // Calculate and display monthly details
-    while (bal > 0 || month <= 12) {
-        double interest = (bal * (intRate / 100));
+    while (bal > 0 || month < 12) {
+        double newBalance = bal - payAmount;
+        double interest = (newBalance * (intRate / 100));
         double principal = payAmount - interest;
         bal -= principal;
 
@@ -65,7 +66,7 @@ int main()
             bal = 0;
         }
         cout << fixed << setprecision(2);
-       cout << setw(10) << month << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << principal << endl;
+       cout << setw(10) << month +1 << "$  " << setw(10) << newBalance << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << bal << endl;
 
         
         month++;
