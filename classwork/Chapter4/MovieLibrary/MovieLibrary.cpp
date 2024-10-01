@@ -21,6 +21,8 @@ struct Movie
     int ReleaseYear;
 
     bool IsClassic;
+
+    string Genre;
 };
 
 //to create small value for switch
@@ -263,9 +265,62 @@ int main()
             };
         };
     };
+    cin.ignore();
 
-
+    //Get Genre
+    //int genreCount = 0;
+    //while (genreCount < 5)
+    //{
+    //    cout << "Enter optional genre: " << (genreCount +1) << ": ";
+    //    string genre;
+    //    getline(cin, genre);
+    //    if (genre != "")
+    //    {
+    //        movie.Genre += genre + ",";
+    //    };
+    //    genreCount++; //prefix /postfix
+    //};
     // display movie details
+
+    //For loop -designed to iterate a fixed number oftimes with a well known start and end
+    //for(init expression; test expression; update_expression
+    
+    //int genreIndex = 0;
+    //for(int index = 0; index < 5; ++index) // =0, <N (rarely) =1, <=N
+    //{
+    //    cout << "Enter optional genre: " << (index + 1) << ": ";
+    //    string genre;
+    //    getline(cin, genre);
+    //    if (genre != "")
+
+    //    {
+    //        movie.Genre += genre + ",";
+    //    };
+    // 
+    //};
+
+    for (int index = 0; index < 5; ++index) // =0, <N (rarely) =1, <=N
+    {
+        cout << "Enter optional genre: " << (index + 1) << ": ";
+        string genre;
+        getline(cin, genre);
+        if (genre != "")
+
+            break; //Exits the loop
+       // continue; //Loops only - stops the current iteration and loops again
+        movie.Genre += genre + ", ";
+
+    };
+
+    //More complex for loop
+    //No question in Quiz
+    //for (int index = 0, int y =1; index < 5, index < y; ++index, y+=2) // =0, <N (rarely) =1, <=N {};
+   
+    //for (: someIndex < 5;) {};
+   
+    //int someIndex = 0;
+    //for (;;) {}; //Infinite loop
+
     cout << "-------------------" << endl;
     cout << movie.Title << "(" << movie.ReleaseYear << ")" << endl;
     cout << "Run Length (mins) " << movie.RunLength << endl;
@@ -291,6 +346,8 @@ int main()
     //shortest form conditional Operatot => Eb ? Et : Ef
     //Et & Ef =must be the exact same type, type coercion is not allowed
     cout <<"Is classic?" << (movie.IsClassic ? "Yes": "No") << endl;
+    if (movie.Genre != ")");
+    cout << "Genres " << movie.Genre << endl;
     if (movie.Description !="")
     cout << movie.Description << endl;
 
