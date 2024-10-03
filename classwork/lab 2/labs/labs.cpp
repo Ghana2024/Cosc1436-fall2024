@@ -1,5 +1,3 @@
-// labs.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 
 #include <iostream>
@@ -10,22 +8,7 @@ using namespace std;
 
 int main()
 {
-    //struct Movie
-    //{
-    //    //Required
-    //    string Title;
-
-    //    // At least 0, minutes
-    //    int RunLength;
-
-    //    //Optional
-    //    string Description;
-
-    //    // >=1900
-    //    int ReleaseYear;
-
-    //    bool IsClassic;
-    //};
+ 
     cout << "Please enter the loan amount: ";
     double bal;
     cin >> bal;// Initial Balance
@@ -37,9 +20,6 @@ int main()
     double payAmount;
     int month = 1;
    
-
-
-
     do {
         cout << "How much do you want to pay each month? ";
         cin >> payAmount;
@@ -48,29 +28,56 @@ int main()
         }
     } while (payAmount <= 0);
 
-
     cout << left << setw(8) << "Month " << setw(10) << "   Balance " << setw(10) << "  Payment " << setw(6) << "   Interest" << setw(12) << "    New Balance " << endl;
     cout << setw(60) << setfill('-') << "" << setfill(' ') << endl;
     cout << setw(10) << month << "$  " << setw(10) << bal << "$  " << setw(10) << "0.00" << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
 
     
     // Calculate and display monthly details
-    while (bal > 0 || month < 12) {
-        double newBalance = bal - payAmount;
-        double interest = (newBalance * (intRate / 100));
-        double principal = payAmount - interest;
-        bal -= principal;
+    double interest, newBalance;
 
-        if (bal < 0 && month >2) {
-            principal += bal;
-            bal = 0;
+        for (int index = 1; index < 12; ++index)
+        {
+            if (bal > 20)
+            {
+                newBalance = bal - payAmount;
+                interest = (newBalance * (intRate / 100));
+                newBalance += interest;
+                cout << fixed << setprecision(2);
+                cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
+               bal = newBalance;
+            }
+            else if (bal<20 && bal > 0)
+            {
+                
+                cout << fixed << setprecision(2);
+                cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << bal << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance) * 0 << endl;
+                bal = newBalance;
+            }
+            else
+            {
+
+                cout << fixed << setprecision(2);
+                cout << setw(10) << month + 1 << "$  " << setw(10) << abs(bal*0) << "$  " << setw(10) << abs(payAmount * 0) << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance * 0) << endl;
+                bal = newBalance
+                    ;
+            }
+
+                //cout << fixed << setprecision(2);
+                //cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
+               // bal = newBalance;
+                month++; 
+            
         }
-        cout << fixed << setprecision(2);
-       cout << setw(10) << month +1 << "$  " << setw(10) << newBalance << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << bal << endl;
 
-        
-        month++;
+    double totalPayment = 0.0, totalInterest = 0.0;
+    for (int i = 0; i < month; ++i) {
+        totalPayment += payAmount;
+        totalInterest += interest;
     }
+
+    cout << "Total                  $ " << std::setw(6) << totalPayment
+        << "       $ " << std::setw(6) << totalInterest << "\n";
 
     return 0;
 };
