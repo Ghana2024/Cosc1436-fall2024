@@ -44,6 +44,33 @@ enum MenuCommand
 
 int main()
 {
+    //Nested loop menu
+    int iterations = 0;
+    for (int i = 0;i < 100;++i)
+    {
+       /* if (i != 0)
+        {
+            char choice;
+            cout << "Do you want to give up?";
+            cin >> choice;
+            if (choice == 'Y' || choice == 'y')
+                break;
+        };*/
+        for (int j = 0;j < 10;++j)
+        {
+            if (iterations % 100 == 0)
+            {
+                char choice;
+                cout << "Do you want to give up?";
+                cin >> choice;
+                if (choice == 'Y' || choice == 'y')
+                    break;
+            };
+            ++iterations;
+            cout << i << ", " << j << " = " << iterations << endl;
+        };
+    };
+    cout << "Total iteraitons = " << iterations << endl;
    // //Relational demo
    // //rel_op ::= < <= > >= == !=
    // //rel_expr ::= E rel_op E (boolean)
@@ -99,7 +126,7 @@ int main()
     MenuCommand menuCommand = (MenuCommand)0;
    // bool done = false;
     //while(!done)
-    while (menuCommand == 0)
+    do 
     {
         char input;
         cin >> input;
@@ -122,7 +149,7 @@ int main()
 
             default: cout << "Bad input" << endl; break;
         };
-    };
+    } while (menuCommand == 0);
     cin.ignore();
    // int shouldntWork = MenuCommand::MC_AddMovie;
     //menuCommand = (MenuCommand)1;
@@ -143,7 +170,8 @@ int main()
     Movie movie; // { 0 };
 
     //Get required title
-    while (movie.Title == "")
+   // while (movie.Title == "")
+    do
     {
         cout << "Enter a title: ";
        // cin >> movie.Title;
@@ -151,16 +179,16 @@ int main()
         //Decisio making -IF statement
         //If-ststement ::= if (Eb) S
         if (movie.Title == "")
-        
+
             cout << "ERROR: Title is required" << endl;
-        
+
             //cout << "Enter a title: ";
            // getline(cin, movie.Title);
-        
-    };
+
+    } while (movie.Title == "");
     //Get run length, at least 0. minutes
-    movie.RunLength = -1;
-    while (movie.RunLength < 0 || movie.RunLength > 1440)
+    //movie.RunLength = -1;
+    do//while (movie.RunLength < 0 || movie.RunLength > 1440)
     {
         cout << " Enter run length( in Minutes):";
         cin >> movie.RunLength;
@@ -191,7 +219,7 @@ int main()
             //cin >> movie.RunLength;
         };
 
-    };
+    } while (movie.RunLength < 0 || movie.RunLength > 1440);
     
     while (movie.ReleaseYear < 1900 || movie.ReleaseYear > 2100)
     {
