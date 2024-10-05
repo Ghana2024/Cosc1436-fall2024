@@ -50,15 +50,18 @@ int main()
             else if (bal < 20)
             {
                 interest = 0;
-                //payment = 
+               // newBalance = 0;
+                bal = newBalance;
+             
                 cout << fixed << setprecision(2);
-                cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << bal << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance) * 0 << endl;
+                cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << newBalance << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance) * 0 << endl;
                 //bal = newBalance;
+               // newBalance = 0;
             }
             else if( bal < 0)
             {
-                payAmount = 0;
-                interest = 0;
+                payAmount = 0; 
+                
                 cout << fixed << setprecision(2);
                 cout << setw(10) << month + 1 << "$  " << setw(10) << abs(bal*0) << "$  " << setw(10) << abs(payAmount * 0) << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance * 0) << endl;
                // bal = newBalance
@@ -68,13 +71,15 @@ int main()
                 //cout << fixed << setprecision(2);
                 //cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
                // bal = newBalance;
-                month++; 
+                month++;
+                
             
         }
 
-    double totalPayment = 0.0, totalInterest = 0.0;
+     double totalPayment = 0.0, totalInterest= 0.0;
     for (int i = 0; i < month; ++i) {
-        totalPayment += payAmount;
+       // double totalPayment = 0.0, totalInterest = 0.0;
+        totalPayment += newBalance;//totalpayment = totalpayment + payAmount
         totalInterest += interest;
     }
 
