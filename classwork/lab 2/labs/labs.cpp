@@ -47,20 +47,22 @@ int main()
                 cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
                bal = newBalance;
             }
-            else if (bal<20 && bal > 0)
+            else if (bal < 20)
             {
-                
+                interest = 0;
+                //payment = 
                 cout << fixed << setprecision(2);
                 cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << bal << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance) * 0 << endl;
-                bal = newBalance;
+                //bal = newBalance;
             }
-            else
+            else if( bal < 0)
             {
-
+                payAmount = 0;
+                interest = 0;
                 cout << fixed << setprecision(2);
                 cout << setw(10) << month + 1 << "$  " << setw(10) << abs(bal*0) << "$  " << setw(10) << abs(payAmount * 0) << "$  " << setw(10) << interest << "$  " << setw(10) << abs(newBalance * 0) << endl;
-                bal = newBalance
-                    ;
+               // bal = newBalance
+                    
             }
 
                 //cout << fixed << setprecision(2);
