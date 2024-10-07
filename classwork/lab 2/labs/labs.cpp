@@ -8,104 +8,95 @@ using namespace std;
 
 int main()
 {
- 
+    //Initial LoanBalance
     cout << "Please enter the loan amount: ";
-    double bal;
-    cin >> bal;// Initial Balance
+    double loanBalance;
+    do
+    {
+        cin >> loanBalance;
+        if (loanBalance < 1.00 || loanBalance >1000.00)
+            cout << "Enter the valid Interest Rate.";
+    }
+    while (loanBalance < 1.00 || loanBalance >1000.00);
     cout << endl;
-    double intRate;
+     //Validation of Payment
+    double interestRate;
     cout << "Please enter the interest rate (%): ";
     do {
-        cin >> intRate;
-       // cout << "Please enter the interest rate (%): ";
-        if (intRate <= 0.00 && intRate >=101.00) 
+        cin >> interestRate;
+        if (interestRate < 1.00 || interestRate >100.00) 
         {
             cout << "Enter the valid Interest Rate.";
            
         }
-    } while (intRate <= 0.00 && intRate >= 101.00);
+    } while (interestRate < 1.00 || interestRate > 100.00);
     cout << endl;
-   // double payAmount;
+    //Validation of Payment
     double payAmount;
-    //int month = 1;
     do {
         cout << "How much do you want to pay each month? ";
         cin >> payAmount;
         if (payAmount <= 0) {
             cout << "That is an invalid value. ";
         }
-    //int month = 1;
-
     } while (payAmount <= 0);
-   
+    // Table with the Initial Loan Balance
     int month = 1;
-    cout << left << setw(8) << "Month " << setw(10) << "   Balance " << setw(10) << "  Payment " << setw(6) << "   Interest" << setw(12) << "    New Balance " << endl;
+    cout << left << setw(7) << "Month " << setw(14) << "   Balance " << setw(12) << "  Payment " << setw(5) << "   Interest" << setw(15) << "     New Balance " << endl;
     cout << setw(60) << setfill('-') << "" << setfill(' ') << endl;
-    cout << setw(10) << month << "$  " << setw(10) << bal << "$  " << setw(10) << "0.00" << "$  " << setw(10) << "0.00" << "$  " << setw(10) << bal << endl;
+    cout << setw(10) << month << "$  " << setw(10) << loanBalance << "$  " << setw(10) << "0.00" << "$  " << setw(10) << "0.00" << "$  " << setw(10) << loanBalance << endl;
     
     // Calculate and display monthly details
-    double interest, newBalance;
-
+    double interest, newLoanBalance;
+    double newPayAmount = 0.00;
+    double payEqualizerAmount = 0.00;
+    double totalPaymentFirst = 0.00, totalPayment = 0.00;
+    double  totalInterest, interestFirstCase = 0.00, interestSecondCase =0.00, interestThirdCase = 0.00;
     for (int month = 1; month < 12; ++month)
     {
-        newBalance = bal - payAmount;
-        interest = (newBalance * (intRate / 100));
-        newBalance += interest;
-        if (bal >= 20)
+        newLoanBalance = loanBalance - payAmount;
+        interest = (newLoanBalance * (interestRate / 100));
+        newLoanBalance += interest;
+        if (loanBalance >= 20)
         {
-           // = bal - payAmount;
-           // = (n==ewBalance * (intRate / 100));
-           //newBalance += interest;
             cout << fixed << setprecision(2);
-            cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
-            //bal = newBalance;
-        } else if (bal < 20 && bal >= 1)
+            cout << setw(10) << month + 1 << "$  " << setw(10) << loanBalance << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newLoanBalance << endl;
+            totalPaymentFirst += payAmount;
+            interestFirstCase += interest;
+        } else if (loanBalance < 20 && loanBalance >= 1)
         {
-           // interest = 0;
-            //bal = newBalance;
-           // payAmount = bal;
+ 
+           payEqualizerAmount = loanBalance;
+           interestSecondCase += abs(interest * 0);
+            cout << fixed << setprecision(2);
+            cout << setw(10) << month + 1 << "$  " << setw(10) << loanBalance << "$  " << setw(10) << payEqualizerAmount << "$  " << setw(10) << interestSecondCase << "$  " << setw(10) << abs(newLoanBalance * 0) << endl;
 
-            cout << fixed << setprecision(2);
-            cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << bal << "$  " << setw(10) << abs(interest * 0) << "$  " << setw(10) << abs(newBalance * 0) << endl;
-            //bal = newBalance;
-            //newBalance = 0;
         } else
         {
-           // bal = 0; 
-          // payAmount = bal;
-            //payAmount = 0,
-            //interest = 0;
+            double interestThirdCase = abs(interest * 0);
+            newPayAmount = abs(payAmount * 0);
             cout << fixed << setprecision(2);
-            cout << setw(10) << month + 1 << "$  " << setw(10) << abs(bal*0) << "$  " << setw(10) << abs(payAmount*0) << "$  " << setw(10) << abs(interest*0) << "$  " << setw(10) << abs(newBalance) * 0 << endl;
-           // bal = newBalance;
+            cout << setw(10) << month + 1 << "$  " << setw(10) << abs(loanBalance*0) << "$  " << setw(10) << newPayAmount << "$  " << setw(10) << interestThirdCase << "$  " << setw(10) << abs(newLoanBalance) * 0 << endl;
+         
+           
 
         }
-        bal = newBalance;
+        loanBalance = newLoanBalance;
 
-              // bal = newBalance;
-                //cout << fixed << setprecision(2);
-                //cout << setw(10) << month + 1 << "$  " << setw(10) << bal << "$  " << setw(10) << payAmount << "$  " << setw(10) << interest << "$  " << setw(10) << newBalance << endl;
-               // bal = newBalance;
     }
 
             month++;
-     double totalPayment = 0.00, totalInterest=0.00;
-     for (int i = 0; i < month; ++i)
-     {
- 
+    
      
-         totalPayment += payAmount;//totalpayment = totalpayment + payAmount
-         totalInterest += abs(interest);
-        
-      } 
-      cout << "Total                  $ " << std::setw(6) << totalPayment
-                    << "       $ " << std::setw(6) << totalInterest << "\n";
+     totalPayment = totalPaymentFirst + payEqualizerAmount + newPayAmount;
+     totalInterest = interestFirstCase + interestSecondCase + interestThirdCase;
+     cout << setw(23) <<"Total" << "$ " << setw(11) << totalPayment << setw(3) << "$ " << totalInterest << "\n";
             
-    return 0;
+     return 0;
 };
 
 
-
+ 
 
      
      
