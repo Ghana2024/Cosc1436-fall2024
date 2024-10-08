@@ -34,8 +34,7 @@ int main()
         cin >> interestRate;
         if (interestRate < 1.00 || interestRate >100.00) 
         {
-            cout << "You entered the invalid interest rate.";
-           
+            cout << "You entered the invalid interest rate.";   
         }
     } while (interestRate < 1.00 || interestRate > 100.00);
     cout << endl;
@@ -93,8 +92,7 @@ int main()
     cout << setw(60) << setfill('=') << "" << setfill(' ') << endl;
      totalPayment = higherPayAmount + lowerPayAmount + lowestPayAmount;
      totalInterest = interestFirstCase + interestSecondCase + interestThirdCase;
-     cout << setw(23) <<"Total" << "$ " << setw(11) << totalPayment << setw(3) << "$ " << totalInterest << "\n";
-            
+     cout << setw(23) <<"Total" << "$ " << setw(11) << totalPayment << setw(3) << "$ " << totalInterest << "\n";        
      return 0;
 };
 
