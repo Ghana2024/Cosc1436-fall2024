@@ -35,6 +35,7 @@ int main()
            
         }
     } while (interestRate < 1.00 || interestRate > 100.00);
+    interestRate /= 100;
     cout << endl;
     //Validation of Payment
     double payAmount;
