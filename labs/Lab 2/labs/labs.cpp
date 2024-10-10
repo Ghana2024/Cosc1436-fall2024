@@ -58,14 +58,8 @@ int main()
             cout << "Please provide the correct amount, you want to pay each month. ";
             cout << endl;
         }
-        //Checking the payment system fall under monthly payment and charged interest rate 
-        else if (payAmount == loanBalance)
-        {
-            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, EQUAL CONDITION." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-            cout << "You have entered same as total loan amount, make sure your monthly payment is less than loan amount. ";
-            cout << endl;
-        }
-    } while (payAmount < 0 || payAmount >loanBalance || payAmount== loanBalance);
+        
+    } while (payAmount < 0 || payAmount >loanBalance);
     cout << endl;
     // Table with the Initial Loan Balance
     int month = 1;

@@ -44,6 +44,8 @@ enum MenuCommand
 //Function names are verbs representing actions,
 //Casing: Pascal casing, camel casing 
 
+
+MenuCommand g_menuCommand = (MenuCommand)0;//global variable
 /// Display main menu
 void DisplayMenu()
 {
@@ -53,30 +55,10 @@ void DisplayMenu()
     cout << "E)dit Movie" << endl;
     cout << "D)elete Movie" << endl;
     cout << "V)iew Movie" << endl;
-}
-/// Handles the menu selection
-void HandleMenu()
-{
-    //HACK: Fix this 
-    MenuCommand menuCommand = (MenuCommand)0;
-    switch (menuCommand)
-    {
-        case MenuCommand::AddMovie:
-        case MenuCommand::EditMovie:
-        case MenuCommand::DeleteMovie:
-        case MenuCommand::ViewMovie: cout << "Not implemented" << endl;break;
-    };
-}
-
-int main()
-{
-    //Function call ::=id();
-    DisplayMenu();
-    
-    //// Get input
-    MenuCommand menuCommand = (MenuCommand)0;
    
-    do 
+   MenuCommand menuCommand = (MenuCommand)0;
+
+    do
     {
         char input;
         cin >> input;
@@ -101,16 +83,36 @@ int main()
         };
     } while (menuCommand == 0);
     cin.ignore();
+    //HACK: Don't do this
+    g_menuCommand = menuCommand;//don't do it
+}
+
+/// Handles the menu selection
+void HandleMenu(MenuCommand menuCommand)
+{
+    //HACK: Fix this 
+   // MenuCommand menuCommand = (MenuCommand)0;
+    switch (menuCommand)
+    {
+        case MenuCommand::AddMovie: cout << "AddMovie" << endl; break;
+        case MenuCommand::EditMovie : cout << "EditMovie" << endl; break;
+        case MenuCommand::DeleteMovie: cout << "DeleteMovie" << endl; break;
+        case MenuCommand::ViewMovie: cout << "ViewMovie" << endl;break;
+    };
+}
+
+int main()
+{
+    //Function call ::=id();
+    DisplayMenu();
+    
+    //// Get input
+   
     
     ////Handle menu Command
-    HandleMenu();
-    /*switch (menuCommand)
-    {
-        case MenuCommand::AddMovie:
-        case MenuCommand::EditMovie:
-        case MenuCommand::DeleteMovie:
-        case MenuCommand::ViewMovie: cout << "Not implemented" << endl;break;
-    };*/
+    HandleMenu(g_menuCommand);//global look like
+   
+   
     //Add a new movie
     //Create a new Movie
     Movie movie; // { 0 };
