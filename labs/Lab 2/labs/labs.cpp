@@ -44,21 +44,13 @@ int main()
         cout << "How much do you want to pay each month? ";
         cin >> payAmount;
         //checking payment fall under range
-        if (payAmount < 0) 
+        if (payAmount < 0 || payAmount > loanBalance)
         {
-            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, LESS THAN CONDITION." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-            cout << "You have entered amount less than $0.\n";
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, LESS THAN OR EXCEED RANGE CONDITION." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+            cout << "You have entered amount less than $0 or You have exceed the loan limit. \n";
             cout << "Please provide the correct amount, you want to pay each month. ";
             cout << endl;
         }
-        else if (payAmount > loanBalance)
-        {
-            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, MORE THAN CONDITION." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-            cout << "You have exceed the loan limit.\n";
-            cout << "Please provide the correct amount, you want to pay each month. ";
-            cout << endl;
-        }
-        
     } while (payAmount < 0 || payAmount >loanBalance);
     cout << endl;
     // Table with the Initial Loan Balance
