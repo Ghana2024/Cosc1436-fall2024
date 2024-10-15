@@ -45,7 +45,7 @@ string ReadString(string message, bool isRequired)
 
     return input;
 }*/
-----------------------------------------------------------------------
+//----------------------------------------------------------------------
 #pragma
 int ReadInt(string, int, int);
 string ReadString(string message);

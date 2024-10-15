@@ -1155,7 +1155,7 @@ void AddMovie()
     } while (movie.RunLength < 0 || movie.RunLength > 1440);*/
 
     //Get release year, at least 1900
-    movie.ReleaseYear = ReadInt("Enter release year (1900+): ", 1900, 2100);
+ /*  movie.ReleaseYear = ReadInt("Enter release year (1900+): ", 1900, 2100);
     /*while (movie.ReleaseYear < 1900 || movie.ReleaseYear > 2100)
     {
         cout << "Enter release year (1900+): ";
@@ -1172,8 +1172,7 @@ void AddMovie()
     cin.ignore();
     getline(cin, movie.Description);*/
 
-    //Get Is classic
-    bool done = false;
+/*    bool done = false;
     while (!done)
     {
         char isClassic;
@@ -1318,7 +1317,7 @@ int main()
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "Terminal.h"
+#include <"Terminal.h">
 
 using namespace std;
 
