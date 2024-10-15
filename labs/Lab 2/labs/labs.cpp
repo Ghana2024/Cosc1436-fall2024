@@ -28,7 +28,7 @@ int main()
     while (loanBalance < 1.00 || loanBalance > 1000.00);
     cout << endl;
      //Entering and checking the validation of Interest Rate
-    float interestRate;
+    double interestRate;
     cout << "Please enter the interest rate (%) between 1.0 % to 100.0%: ";
     do {
         cin >> interestRate;
@@ -46,8 +46,8 @@ int main()
         //checking payment fall under range
         if (payAmount < 0 || payAmount > loanBalance)
         {
-            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, LESS THAN OR EXCEED RANGE CONDITION." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-            cout << "You have entered amount less than $0 or You have exceed the loan limit. \n";
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << "ALERT!!, LESS THAN OR EXCEED RANGE PAYMENT." << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+            cout << "You have entered amount less than $0 or exceed the loan balance. \n";
             cout << "Please provide the correct amount, you want to pay each month. ";
             cout << endl;
         }
@@ -61,7 +61,7 @@ int main()
     // Calculation and display monthly details
     double interest, newLoanBalance;
     double totalPayment = 0.00, higherPayAmount = 0.00, lowerPayAmount = 0.00, lowestPayAmount = 0.00;
-    float  totalInterest, interestFirstCase = 0.00, interestSecondCase =0.00, interestThirdCase = 0.00;
+    double  totalInterest, interestFirstCase = 0.00, interestSecondCase =0.00, interestThirdCase = 0.00;
     for (int month = 1; month < 12; ++month)
     {
         //calculation of Interest and New Loan Balance After Each Successful Payment
@@ -75,7 +75,7 @@ int main()
             higherPayAmount += payAmount;
             interestFirstCase += interest;
         }
-        else if(loanBalance < payAmount && loanBalance > 0)
+        else if(loanBalance <= payAmount && loanBalance > 0)
         {
             lowerPayAmount = loanBalance;
             interestSecondCase += abs(interest * 0);

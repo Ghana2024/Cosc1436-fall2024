@@ -392,7 +392,7 @@ void AddMovie()
         //string genre;
        // getline(cin, genre);
         if (genre == "")
-            break; //Exits the loop
+           break; //Exits the loop
 
         movie.Genre += genre + ", ";
     };
