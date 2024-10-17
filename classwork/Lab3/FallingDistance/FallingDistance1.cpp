@@ -14,7 +14,7 @@ int getFallingTime()
 {
     int time;
     do {
-        cout << "Enter the falling time in seconds (1-60): ";
+        cout << "Please enter the number of seconds from (1-60): ";
         cin >> time;
         if (time < 1 || time > 60) {
             cout << "Error: Please enter correct value between 1 and 60." << endl;
@@ -37,17 +37,21 @@ double convertToFeet(double meters)
     return meters * conversionFactor;
 }
 
-void showFallingDistances(int totalTime, char unit) {
+void showFallingDistances(int totalTime, char unit) 
+{
     cout << setw(6) << "Time" << setw(20) << "Distance Fallen ("
         << (unit == 'f' ? "ft" : "m") << ")" << endl;
     cout << "---------------------------------" << endl;
 
-    for (int t = 1; t <= totalTime; ++t) {
+    for (int t = 1; t <= totalTime; ++t) 
+    {
         double distance = calculateFallingDistance(t);
-        if (unit == 'f') {
+        if (unit == 'f') 
+        {
             distance *= 3.28084; // Convert meters to feet
         }
-        else if (unit == 'f') {
+        else if (unit == 'f') 
+        {
             distance = convertToFeet(distance); // Convert to feet if unit is 'f'
         }
         cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
@@ -78,7 +82,7 @@ int main()
     cout << " COSC 1436 Fall 2024 \n";
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
-   
+  // 
 int fallingTime = getFallingTime();
 double distance = calculateFallingDistance(fallingTime);
 char unit = getUnitOfMeasurement();
