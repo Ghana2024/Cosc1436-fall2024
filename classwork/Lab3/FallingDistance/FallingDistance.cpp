@@ -1,14 +1,13 @@
-// FallingDistance.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/* Program title:Lab 3 
+ Ghana Dahal 
+COSC 1436 Fall 2024*/
 
-#include <iostream>
+/*#include <iostream>
 #include <iomanip>
 #include <string>
 #include <cmath>
 #include <cctype>
 using namespace std;
-
-
 
 // Function to prompt user for falling time
 int getFallingTime() {
@@ -23,6 +22,7 @@ int getFallingTime() {
 
     return time;
 }
+
 // Function to calculate falling distance in meters
 double calculateFallingDistance(int time) {
     const double g = 9.8; // Acceleration due to gravity in m/s^2
@@ -44,7 +44,8 @@ char getUnitOfMeasurement() {
     return unit;
 }
 // Function to convert meters to feet
-double convertToFeet(double meters) {
+double convertToFeet(double meters) 
+{
     const double conversionFactor = 3.28084;
     return meters * conversionFactor;
 }
@@ -96,12 +97,13 @@ int main()
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
 
-    std::cout << "Welcome to the Falling Time Calculator!" << std::endl;
+    //std::cout << "Welcome to the Falling Time Calculator!" << std::endl;
     int fallingTime = getFallingTime();
-    std::cout << "Falling time entered: " << fallingTime << " seconds" << std::endl;
-    std::cout << "Welcome to the Falling Distance Calculator!" << std::endl;
+   // std::cout << "Falling time entered: " << fallingTime << " seconds" << std::endl;
+   // std::cout << "Welcome to the Falling Distance Calculator!" << std::endl;
 
     //int fallingTime = getFallingTime(); // Assuming you have implemented getFallingTime() as discussed before
+   // int fallingTime = getFallingTime();
     double distance = calculateFallingDistance(fallingTime);
     std::cout << "Falling distance for " << fallingTime << " seconds is " << distance << " meters" << std::endl;
     //showFallingDistances(fallingTime);
@@ -121,5 +123,5 @@ int main()
      
     return 0;
 
-}
+}*/
 
