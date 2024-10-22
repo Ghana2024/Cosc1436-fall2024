@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include 'Terminal.h'
+#include "Terminal.h";
 /// @brief Reads an integer value
 /// @param message Message to display
 /// @param minValue Minimum required value

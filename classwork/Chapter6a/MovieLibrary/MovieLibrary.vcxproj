@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{502e4c8f-8b9d-4bac-adff-83ffc090ec66}</ProjectGuid>
-    <RootNamespace>FallingDistance</RootNamespace>
+    <ProjectGuid>{625887b0-1b82-49e6-9e52-ac30c6cf40bb}</ProjectGuid>
+    <RootNamespace>MovieLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FallingDistance1.cpp" />
+    <ClCompile Include="MovieLibrary.cpp" />
+    <ClCompile Include="Terminal.cpp" />
+    <ClCompile Include="Terminal.h.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
