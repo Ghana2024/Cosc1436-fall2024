@@ -85,6 +85,5 @@ int fallingTime = getFallingTime();
 double distance = calculateFallingDistance(fallingTime);
 char unit = getUnitOfMeasurement();
 showFallingDistances(fallingTime, unit);
-
 return 0;
 }
