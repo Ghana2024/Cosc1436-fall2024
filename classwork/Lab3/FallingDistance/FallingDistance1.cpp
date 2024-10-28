@@ -6,7 +6,6 @@ COSC 1436 Fall 2024*/
 #include <iomanip>
 #include <string>
 #include <cmath>
-//#include <cctype>
 using namespace std;
 
 // Function to prompt user for falling time
@@ -48,11 +47,6 @@ void showFallingDistances(int totalTime, char unit)
     for (int t = 1; t <= totalTime; ++t) 
     {
         double distance = calculateFallingDistance(t);
-       // if (unit == 'f') 
-       // {
-          //  distance *= 3.28084; // Convert meters to feet
-       // }
-       // else
        if (unit == 'f') 
         {
            distance = convertToFeet(distance); // Convert to feet if unit is 'f'
@@ -60,14 +54,15 @@ void showFallingDistances(int totalTime, char unit)
         cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
     }
 }
-// Function to prompt user for unit of measurement
+
+// Function to prompt user for unit of measurement feet or meters
 char getUnitOfMeasurement() 
 {
     char unit;
     do {
         cout << "Do you want the results in meters or feet?: ";
         cin >> unit;
-        unit = tolower(unit);
+        unit = tolower(unit); // Capital Letter to change into Small Letter
         if (unit != 'f' && unit != 'm') {
             cout << "Error: Please enter 'f' for feet or 'm' for meters." << endl;
         }
