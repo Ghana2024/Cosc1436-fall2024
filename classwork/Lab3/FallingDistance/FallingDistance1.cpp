@@ -16,7 +16,8 @@ int getFallingTime()
     do {
         cout << "Please enter the number of seconds from (1-60): ";
         cin >> time;
-        if (time < 1 || time > 60) {
+        if (time < 1 || time > 60) 
+        {
             cout << "Error: Please enter correct value between 1 and 60." << endl;
         }
     } while (time < 1 || time > 60);
@@ -27,9 +28,10 @@ int getFallingTime()
 // Function to calculate falling distance in meters
 double calculateFallingDistance(int time) 
 {
-    const double g = 9.8; // Acceleration due to gravity in m/s^2
+    const double g = 9.8; // Acceleration due to gravity with unit m/s^2
     return 0.5 * g * pow(time, 2);
 }
+
 // Function to convert meters to feet
 double convertToFeet(double meters)
 {
@@ -37,22 +39,23 @@ double convertToFeet(double meters)
     return meters * conversionFactor;
 }
 
+// Selecting the feet or meter
 void showFallingDistances(int totalTime, char unit) 
 {
     cout << setw(6) << "Time" << setw(20) << "Distance Fallen ("
         << (unit == 'f' ? "ft" : "m") << ")" << endl;
-    cout << "---------------------------------" << endl;
-
+    cout << "===============================" << endl;
     for (int t = 1; t <= totalTime; ++t) 
     {
         double distance = calculateFallingDistance(t);
-        if (unit == 'f') 
+       // if (unit == 'f') 
+       // {
+          //  distance *= 3.28084; // Convert meters to feet
+       // }
+       // else
+       if (unit == 'f') 
         {
-            distance *= 3.28084; // Convert meters to feet
-        }
-        else if (unit == 'f') 
-        {
-            distance = convertToFeet(distance); // Convert to feet if unit is 'f'
+           distance = convertToFeet(distance); // Convert to feet if unit is 'f'
         }
         cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
     }
@@ -69,7 +72,6 @@ char getUnitOfMeasurement()
             cout << "Error: Please enter 'f' for feet or 'm' for meters." << endl;
         }
     } while (unit != 'f' && unit != 'm');
-
     return unit;
 }
 
@@ -82,7 +84,8 @@ int main()
     cout << " COSC 1436 Fall 2024 \n";
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
-  // 
+
+  // function call
 int fallingTime = getFallingTime();
 double distance = calculateFallingDistance(fallingTime);
 char unit = getUnitOfMeasurement();
