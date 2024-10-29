@@ -37,25 +37,24 @@ double convertToFeet(double meters)
 {
     const double conversionFactor = 3.28084;
     meters = meters * conversionFactor;
-    return meters; //* conversionFactor;
+    return meters;
 }
-
 // Selecting the feet or meter
-void showFallingDistances(int totalTime, char unit) 
-{
-    cout << setw(6) << "Time" << setw(20) << "Distance Fallen ("
-        << (unit == 'f' ? "ft" : "m") << ")" << endl;
-    cout << "===============================" << endl;
-    for (int t = 1; t <= totalTime; ++t) 
+    void showFallingDistances(int totalTime, char unit)
     {
-        double distance = calculateFallingDistance(t);
-       if (unit == 'f') 
+        cout << setw(6) << "Time" << setw(20) << "Distance Fallen ("
+            << (unit == 'f' ? "ft" : "m") << ")" << endl;
+        cout << "===============================" << endl;
+        for (int t = 1; t <= totalTime; ++t)
         {
-           distance = convertToFeet(distance); // Convert to feet if unit is 'f'
+            double distance = calculateFallingDistance(t);
+            if (unit == 'f')
+            {
+                distance = convertToFeet(distance); // Convert to feet if unit is 'f'
+            }
+            cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
         }
-        cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
     }
-}
 
 // Function to prompt user for unit of measurement feet or meters
 char getUnitOfMeasurement() 
@@ -65,7 +64,8 @@ char getUnitOfMeasurement()
         cout << "Do you want the results in meters or feet?: ";
         cin >> unit;
         unit = tolower(unit); // Capital Letter to change into Small Letter
-        if (unit != 'f' && unit != 'm') {
+        if (unit != 'f' && unit != 'm') 
+        {
             cout << "Error: Please enter 'f' for feet or 'm' for meters." << endl;
         }
     } while (unit != 'f' && unit != 'm');
