@@ -53,7 +53,71 @@ void Translate(Rectangle& rect, int offsetX, int offsetY)
 //    Display(rc);
 //}
 
+void GradeArrayDemo()
+{
+    const int MaxGrades = 20;
+    double dummyValue2 = -1;
+    int grades[MaxGrades];
+    double dummyValue = 0;
+
+    int estimatedMaxArraySize = sizeof(grades) / sizeof(int); // Size of array/ size of element
+
+
+    int count = 0;
+    for (int index = 0; index < MaxGrades; ++index) // ++count)// Careful about <= should not have
+    {
+        std::cout << "Enter a grade: ";
+        std::cin >> grades[index];
+        //grades[index] = 100;
+
+        if (grades[index] <= 0)
+            break;
+        ++count;
+    };
+    //for (int index = 0; index < MaxGrades; ++index) for entire array
+        for (int index = 0; index < count; ++index)
+    {
+        std::cout << grades[index] << std::endl;
+     }
+ 
+    int indexToChange;
+    do 
+    {
+        std::cout << "Enter the index of the grade to change: ";
+        std::cin >> indexToChange;
+    } while (indexToChange < 0 || indexToChange >= MaxGrades);
+    
+
+    int newGrade;
+    std::cout << "Enter the new the grade: ";
+    std::cin >> newGrade;
+
+    grades[indexToChange] = newGrade;
+
+}
+void InitArrayDemo()
+{
+    const int Maxrates = 100;
+    double payRates[Maxrates] = {0};//Zero initialize
+
+    ///Zero Init
+    //for (init index = 0; index < MaxRates; ++index)
+    //    payRates[index] = 0;
+
+}
+
 int main()
+{
+   
+    
+    
+    
+    //double gradeAverages[100];
+   // GradeArrayDemo();
+}
+
+//this function is not affectinf below the main function
+void NameArrayDemo()
 {
     //Array is a set of related data
     /*std::string student1;
@@ -64,6 +128,7 @@ int main()
     const int MaxStudents = 100;//solve the maintenence issue of array size
     std::string students[MaxStudents];
 
+
     //All elememnt are exact same type
  /*   int grades[10];
     grades[0] = 10;
@@ -71,7 +136,7 @@ int main()
 
     //store roster of students
     //when using for loop use = 0 to < N
-    for (int index =0; index < MaxStudents; ++index)
+    for (int index = 0; index < MaxStudents; ++index)
     {
         std::string student;
         std::cout << "Enter student Name: ";
@@ -88,8 +153,9 @@ int main()
     //std::cout << student << endl;
     for (int index = 0; index < MaxStudents; ++index)
     {
-        if(students[index] != "")
-        std::cout << students[index] << std::endl;
+        if (students[index] != "")
+            std::cout << students[index] << std::endl;
     };
-
 }
+
+
