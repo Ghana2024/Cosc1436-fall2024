@@ -35,7 +35,6 @@ double calculateFallingDistance(int time)
 double convertToFeet(double meters)
 {
     const double conversionFactor = 3.28084;
-
     return meters * conversionFactor;
 }
 
@@ -49,10 +48,6 @@ void showFallingDistances(int totalTime, char unit)
     {
         double distance = calculateFallingDistance(t);
        if (unit == 'f') 
-        {
-            distance *= 3.28084; // Convert meters to feet
-        }
-        else if (unit == 'f') 
         {
             distance = convertToFeet(distance); // Convert to feet if unit is 'f'
         }
@@ -83,7 +78,7 @@ int main()
     cout << " COSC 1436 Fall 2024 \n";
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
-  // 
+  // Calling Functions
 int fallingTime = getFallingTime();
 double distance = calculateFallingDistance(fallingTime);
 char unit = getUnitOfMeasurement();
