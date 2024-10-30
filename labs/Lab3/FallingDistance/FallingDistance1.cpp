@@ -38,6 +38,7 @@ double calculateFallingDistance(int time)
     meters *= conversionFactor;
     return meters;
  }
+
 // Selection of feet or meter
  void showFallingDistances(int totalTime, char unit)
   {
