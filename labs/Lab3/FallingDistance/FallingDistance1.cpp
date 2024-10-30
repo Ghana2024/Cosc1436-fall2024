@@ -20,7 +20,6 @@ int getFallingTime()
             cout << "Error: Please enter correct value between 1 and 60." << endl;
         }
     } while (time < 1 || time > 60);
-
     return time;
 }
 
@@ -33,28 +32,28 @@ double calculateFallingDistance(int time)
 }
 
 // Function to convert meters to feet
-double convertToFeet(double meters)
-{
+ double convertToFeet(double meters)
+ {
     const double conversionFactor = 3.28084;
-    meters = meters * conversionFactor;
+    meters *= conversionFactor;
     return meters;
-}
-// Selecting the feet or meter
-    void showFallingDistances(int totalTime, char unit)
-    {
-        cout << setw(6) << "Time" << setw(20) << "Distance Fallen ("
+ }
+// Selection of feet or meter
+ void showFallingDistances(int totalTime, char unit)
+  {
+        cout << setw(6) << "Seconds" << setw(20) << "Distance ("
             << (unit == 'f' ? "ft" : "m") << ")" << endl;
         cout << "===============================" << endl;
-        for (int t = 1; t <= totalTime; ++t)
+        for (int time = 1; time <= totalTime; ++time)
         {
-            double distance = calculateFallingDistance(t);
+            double distance = calculateFallingDistance(time);
             if (unit == 'f')
             {
                 distance = convertToFeet(distance); // Convert to feet if unit is 'f'
             }
-            cout << setw(6) << t << setw(20) << fixed << setprecision(2) << distance << endl;
+            cout << setw(6) << time << setw(20) << fixed << setprecision(2) << distance << endl;
         }
-    }
+  }
 
 // Function to prompt user for unit of measurement feet or meters
 char getUnitOfMeasurement() 
@@ -74,7 +73,7 @@ char getUnitOfMeasurement()
 
 int main()
 {
-    //Display Program Title, My Name, Course and Semester
+    //Display Programmer Title, My Name, Course and Semester
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << " Program title:Lab 3 \n";
     cout << " Ghana Dahal \n";
@@ -82,7 +81,7 @@ int main()
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
 
-  // function call
+  // Function call
    int fallingTime = getFallingTime();
    double distance = calculateFallingDistance(fallingTime);
    char unit = getUnitOfMeasurement();
