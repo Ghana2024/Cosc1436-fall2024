@@ -104,12 +104,68 @@ void InitArrayDemo()
     //for (init index = 0; index < MaxRates; ++index)
     //    payRates[index] = 0;
 
+
+    //Init days of month
+   // char name[] = "Bob";
+    std::string monthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    //monthNames[0] = "Jan";
+    //monthNames[1] = "Feb";
+    //monthNames[2] = "March";
+    //monthNames[3] = "April";
+
+    // zERO EXTEND INITILAIZE ALL ELEMENTS
+    
+    //int daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 30, 31, 31, 30, 31 };
+
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 30, 31, 31, 30, 31};
+    
+    //daysInMonth[0] = daysInMonth[2] = daysInMonth[4] = daysInMonth[6] = daysInMonth[7] = daysInMonth[9] = daysInMonth[11] = 31;
+    //daysInMonth[1] = 28;
+    //daysInMonth[3] = daysInMonth[5] = daysInMonth[8] = daysInMonth[12] = 30;
+
+    for (int index = 0; index < 12; ++index)
+        std::cout << monthNames[index] << " has " << daysInMonth[index] << "days" << std::endl;
+}
+
+//use array condition
+void useArrayDemo()
+{
+    int array1[20] = {0};
+
+    //for (int index = 0; index < 20; ++index)
+    //    array1[index] = index + 1;
+    //--- modify to pass by parameter alternatively above stick with the above when you modify the index
+    for (int& value : array1)
+        value = 1;
+
+
+    //int index2 = 0;
+    //while (index2 < 20)
+    //{
+    //    //array1[index2] = ++index2;      ------- alternatevely down
+    //    array1[index2++] = index2 + 1;
+    //    //array1[index2] = index2 + 1;
+    //    //++index2;
+    //}
+    
+    // for loop for iterating arrays
+
+    //--------------------------------
+    //for (int index = 0; index < 20; ++index)
+    //   std:: cout << array1[index] << std::endl;
+   
+    //-----------equivalent below
+
+    // Don't care about to index
+    for (int value : array1)
+        std::cout << value << std::endl;
+
 }
 
 int main()
 {
    
-    
+    InitArrayDemo();
     
     
     //double gradeAverages[100];
