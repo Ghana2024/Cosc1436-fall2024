@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FallingDistance1.cpp">
+    <ClCompile Include="FallingDistance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
