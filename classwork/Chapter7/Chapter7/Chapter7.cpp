@@ -1,4 +1,4 @@
-
+/* chapter 7 Bound check and Initialization*/
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -61,8 +61,6 @@ void GradeArrayDemo()
     double dummyValue = 0;
 
     int estimatedMaxArraySize = sizeof(grades) / sizeof(int); // Size of array/ size of element
-
-
     int count = 0;
     for (int index = 0; index < MaxGrades; ++index) // ++count)// Careful about <= should not have
     {
