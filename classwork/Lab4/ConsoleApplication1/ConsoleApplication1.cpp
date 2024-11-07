@@ -1,6 +1,8 @@
 
 
 #include <iostream>
+#include <string>
+#include <cmath>
 
 char choice; 
 do
@@ -13,7 +15,9 @@ case 'a': std::cout << "You selected Option 1." << std::endl; // Add code for Op
 case 'c': std::cout << "Quitting the program. Goodbye!" << std::endl;
  break;
      } 
-} while (choice != 'c'); return 0;
+   
+} while (choice != 'c');  return 0;
+
 
 // Function to prompt the user for numbers 
 int getNumbers(int numbers[], int maxSize)
