@@ -116,49 +116,49 @@ int addMoreValues(int numbers[], int count, int maxSize) {
     return count;
 }
 
-int handleMenuChoice(char choice,int count, int numbers[])
-{
-    while (true) {
-        char choice = displayMenu();
-        switch (choice) {
-            case '1':
-                displayValues(numbers, count);
-                break;
-            case '2':
-                count = addMoreValues(numbers, count, MAX_NUMBERS);
-                break;
-            case '3':
-                if (count > 0) {
-                    cout << "Largest value: " << getLargestValue(numbers, count) << endl;
-                } else {
-                    cout << "No values entered." << endl;
-                }
-                break;
-            case '4':
-                if (count > 0) {
-                    cout << "Smallest value: " << getSmallestValue(numbers, count) << endl;
-                } else {
-                    cout << "No values entered." << endl;
-                }
-                break;
-            case '5':
-                cout << "Sum of values: " << getSumOfValues(numbers, count) << endl;
-                break;
-            case '6':
-                if (count > 0) {
-                    cout << "Mean of values: " << fixed << setprecision(4) << getMeanOfValues(numbers, count) << endl;
-                } else {
-                    cout << "No values entered." << endl;
-                }
-                break;
-            case 'Q':
-                cout << "Exiting the program. Goodbye!" << endl;
-                //return 0;
-            default:
-                cout << "Error: Invalid option. Please try again." << endl;
-        }
-    }
-}
+//double handleMenuChoice(char choice, int count, int numbers[])
+//{
+//    while (true) {
+//        char choice = displayMenu();
+//        switch (choice) {
+//            case '1':
+//                displayValues(numbers, count);
+//                break;
+//            case '2':
+//                count = addMoreValues(numbers, count, MAX_NUMBERS);
+//                break;
+//            case '3':
+//                if (count > 0) {
+//                    cout << "Largest value: " << getLargestValue(numbers, count) << endl;
+//                } else {
+//                    cout << "No values entered." << endl;
+//                }
+//                break;
+//            case '4':
+//                if (count > 0) {
+//                    cout << "Smallest value: " << getSmallestValue(numbers, count) << endl;
+//                } else {
+//                    cout << "No values entered." << endl;
+//                }
+//                break;
+//            case '5':
+//                cout << "Sum of values: " << getSumOfValues(numbers, count) << endl;
+//                break;
+//            case '6':
+//                if (count > 0) {
+//                    cout << "Mean of values: " << fixed << setprecision(4) << getMeanOfValues(numbers, count) << endl;
+//                } else {
+//                    cout << "No values entered." << endl;
+//                }
+//                break;
+//            case 'Q':
+//                cout << "Exiting the program. Goodbye!" << endl;
+//                //return 0;
+//            default:
+//                cout << "Error: Invalid option. Please try again." << endl;
+//        }
+//    }
+//}
 
 
 //void handleMenuChoice( char choice, int numbers)
@@ -208,19 +208,75 @@ int handleMenuChoice(char choice,int count, int numbers[])
 //    }
 //}
 
-int main()
-{
-cout << "Welcome to the Number Management Program!" << endl;
-  int numbers[MAX_NUMBERS];
-  promptForNumbers(numbers, MAX_NUMBERS);
-  //displayMenu();
-  char choice; 
-   do 
-   {
-       
-   handleMenuChoice();
-   } while (choice != 'Q');
-   return 0;
-   
-}
+//int main()
+//{
+//cout << "Welcome to the Number Management Program!" << endl;
+//  int number[MAX_NUMBERS];
+//  promptForNumbers(number, MAX_NUMBERS);
+//  displayMenu();
+//  char choice;
+//   do 
+//   {    
+//    handleMenuChoice(choice, int count, int numbers[]);
+//   } while (choice != 'Q');
+//   return 0;
+//   
+//}
 
+int main() 
+{
+    cout << "Welcome to the Number Management Program!" << endl;
+    int numbers[MAX_NUMBERS];
+    int count = promptForNumbers(numbers, MAX_NUMBERS);
+
+    while (true) 
+    {
+        char choice = displayMenu();
+        switch (choice) 
+        {
+            case '1':
+                displayValues(numbers, count);
+                break;
+            case '2':
+                count = addMoreValues(numbers, count, MAX_NUMBERS);
+                break;
+            case '3':
+                if (count > 0) 
+                {
+                    cout << "Largest value: " << getLargestValue(numbers, count) << endl;
+                } 
+                else 
+                {
+                    cout << "No values entered." << endl;
+                }
+                break;
+            case '4':
+                if (count > 0) 
+                {
+                    cout << "Smallest value: " << getSmallestValue(numbers, count) << endl;
+                } else 
+                {
+                    cout << "No values entered." << endl;
+                }
+                break;
+            case '5':
+                cout << "Sum of values: " << getSumOfValues(numbers, count) << endl;
+                break;
+            case '6':
+                if (count > 0) 
+                {
+                    cout << "Mean of values: " << fixed << setprecision(4) << getMeanOfValues(numbers, count) << endl;
+                } 
+                else 
+                {
+                    cout << "No values entered." << endl;
+                }
+                break;
+            case 'Q':
+                cout << "Exiting the program. Goodbye!" << endl;
+                return 0;
+            default:
+                cout << "Error: Invalid option. Please try again." << endl;
+        }
+    }
+}
