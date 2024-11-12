@@ -125,6 +125,134 @@ void DynamicMemoryDemo()
     };
 }
 
+//Poineters can be passed as parameters
+//void DisplayInt ArrayDemo(int aee[], int size)
+void DisplayIntArrayDemo(int* arr, int size)
+{
+    int values[100];
+
+    for (int index = 0; index < 100; ++index)
+        std::cout << arr[index] << " ";
+    std::cout << std::endl;
+
+   
+
+}
+
+void ArrayPointerDemo()
+{
+    int values[100];
+    
+    //Array variables are pointer
+    int* ptrValues = values;
+
+    for (int index = 0; index < 100; ++index)
+    {
+        //Pointer arthimetric
+        // Add/substraction
+        // Value is always multiplied by sizeOf(T) so you are referencing a whole element
+        //arr[index] = arr = index = arr + (sizeof(T) * index)
+        //arr[index] = *(arr + index)
+
+        *(ptrValues + index) = index + 1;
+
+        //*(ptrValues + (sizeof(int) * index)) = index + 1;
+    };
+
+    /*for (int index = 0; index < 100; ++index)
+        value[index] = index + 1;*/
+
+    DisplayIntArray(values. 100);
+
+    int localVariable = 100;
+    DisplayIntArray(&localVariable, 1);
+
+}
+
+void NewArrayDemo()
+{
+    //double arr[100];
+    //Dynamically allocate array at run time
+
+    int size;
+    std::cout << "hOW MANY ELEMENT: ";
+    std::cin >> size;
+
+    //Aray decl won't work at runtime
+    //new T[size]
+    // Size must be integral and > 0
+    //Ensure you delete this when done
+    double* arr = new double[size];
+
+    //Arrays and pointer are interchangeable so nothing else change
+    for (int index = 0; index < size; ++index)
+    {
+        std::cout << "Enter a value: ";
+        std::cin >> arr[index];
+
+        if (arr[index] == 0)
+            break;
+    }
+    //clean up
+    //delete arr; //This is wrong by the way
+    delete[] arr; // Required for array to delete properly clean up all the array
+}
+
+
+void NewArrayDemo2()
+{
+    while (true)
+    {
+        NewArrayDemo();
+
+        std::cout << "Keep going (Y/N)?";
+
+        char choice;
+        std::cin >> choice;
+
+        if (choice == 'N' || choice == 'n')
+            break;
+    };
+};
+
+//Employee is pass by reference, any changes to employee are visible to caller
+void InitializeEmployeeByRef(int& employee)
+{
+    //No need to validate argument
+
+    std::cout << "Enter the employee Id: ";
+        //std::getline(std::cin, employee.Name);
+    std::cin >> employee;
+};
+
+//Employee is pass by value (memory address), any changes to employee are visible to caller
+void InitializeEmployeeByPtr(int* employee)
+{
+    if(employee) //employee != nullptr || employee != Null
+    {
+       // employee++;
+
+        std::cout << "Enter the employee ID: ";
+    //std::getline(std::cin, employee.Name);
+        std::cin >> *employee;
+    }
+
+};
+
+void PassByRefVsPointerDemo()
+{
+   // Employee employee;
+    int employeeId;
+    //pass by ref - must pass a variable
+    InitializeEmployeeByRef(employeeId);
+
+    //Pass by value -must pass the address of variable
+    InitializeEmployeeByPtr(&employeeId);
+
+    InitializeEmployeeByPtr(null);
+}
+
+
 int main()
 {
     //StackDemo();
@@ -137,6 +265,7 @@ int main()
     //std::cin >> choice;
     //if ( choice == N || choice == n)
     //   break;
+    ArrayPointerDemo();
         
 }
 
