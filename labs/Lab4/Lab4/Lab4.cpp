@@ -13,26 +13,29 @@ int promptForNumbers(int numbers[], int maxSize)
 {
     int count = 0;// Counter for the number of valid entries
     int value;
-    while (count < maxSize) 
+    while(count < maxSize) 
     {
         cout << "Enter an integral number (0 to stop): ";
-        cin >> value;
-        if (cin.fail())
+        if (cin >> value)
         {
-           // cin.clear(); // clear the error 
-            //cin.ignore(maxSize, '\n'); // discard invalid input
-            cout << "Error: Please enter a valid integral number." << endl;
-            continue;
+            if (value == 0)
+            {
+                break;
+            } else if (value < 0)
+            {
+                cout << "Error: Negative values are not allowed." << endl;
+            } 
+            else
+            {
+                numbers[count++] = value;// Store valid values in the array
+            }
         }
-        else if (value == 0) 
+        else
         {
-            break;
-        } else if (value < 0) 
-        {
-            cout << "Error: Negative values are not allowed." << endl;
-        } else 
-        {
-            numbers[count++] = value;// Store valid values in the array
+                cin.clear(); // clear the error 
+                cin.ignore(maxSize, '\n'); // discard invalid input and space
+                cout << "Error: Please enter a valid integral number." << endl;
+                continue;
         }
     }
     return count;// Return the number of valid entries
@@ -43,6 +46,7 @@ char displayMenu()
 {
     char choice;
     cout << "\nMain Menu:" << endl;
+    cout << setw(15) << setfill('=') << "" << setfill(' ') << endl;
     cout << "1. Display values" << endl;
     cout << "2. Add more values" << endl;
     cout << "3. Get largest value" << endl;
@@ -50,7 +54,8 @@ char displayMenu()
     cout << "5. Get sum of values" << endl;
     cout << "6. Get mean of values" << endl;
     cout << "Q. Quit" << endl;
-    cout << "Select an option: ";
+    cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+    cout << "Select an option 1 to 6 or Q for Exit the Program: ";
     cin >> choice;
     return toupper(choice);// Convert choice to uppercase to handle case insensitivity
 }
@@ -59,12 +64,12 @@ char displayMenu()
 //Returns the largest value in the array.
 int getLargestValue(const int numbers[], int count) 
 {
-    int largest = numbers[0];
+    int largest = numbers[0];//initializing largest the first element of the array numbers.
     for (int i = 1; i < count; ++i) 
     {
         if (numbers[i] > largest) 
         {
-            largest = numbers[i];
+            largest = numbers[i];//updating largest if current element is greater.
         }
     }
     return largest;
@@ -91,7 +96,7 @@ int getSumOfValues(const int numbers[], int count)
     int sum = 0;
     for (int i = 0; i < count; ++i) 
     {
-        sum += numbers[i];
+        sum += numbers[i];//adding each element to sum
     }
     return sum;
 }
@@ -101,6 +106,7 @@ int getSumOfValues(const int numbers[], int count)
 double getMeanOfValues(const int numbers[], int count) 
 {
     return static_cast<double>(getSumOfValues(numbers, count)) / count;
+    //dividing the sum of the array elements that is converted to double/the number of elements.
 }
 
 // Function to display the values in the array,showing 10 values per line.
@@ -120,35 +126,36 @@ void displayValues(const int numbers[], int count)
 // Function to add more values to the array
 int addMoreValues(int numbers[], int count, int& maxSize) 
 {
-    //int promptForNumbers(int numbers[], int maxSize);
     int value;
     while (count < maxSize) 
     {
         cout << "Enter an integral number (0 to stop): ";
-        cin >> value;
-        if (cin.fail()) 
+        if (cin >> value)
         {
-            cin.clear(); // clear the error flag
-            cin.ignore(maxSize); // discard invalid input
-            cout << "Error: Please enter a valid integral number." << endl;
-            break;
+            if (value == 0)
+            {
+                break;
+            } else if (value < 0)
+            {
+                cout << "Error: Negative values are not allowed." << endl;
+            } else
+            {
+                numbers[count++] = value;
+            }
         }
-        if (value == 0) 
+        else
         {
-            break;
-        } else if (value < 0) 
-        {
-            cout << "Error: Negative values are not allowed." << endl;
-        } else 
-        {
-            numbers[count++] = value;
+                cin.clear(); // clear the error 
+                cin.ignore(maxSize); // discard invalid input
+                cout << "Error: Please enter a valid integral number." << endl;
+                break;
         }
     }
     return count;
 }
 
 //Function to handle the menu choices takes the user’s choice, the array of numbers, and the count of numbers as input.
-void handleMenuFunction(char choice, int numbers[], int& count, int maxSize) 
+void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)// 
 {
     switch (choice) 
     {
@@ -188,7 +195,8 @@ void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)
             }
             break;
         case 'Q':
-            cout << "Exiting the program. Goodbye!" << endl;
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+            cout << "Exiting the program. Goodbye for this time!" << endl;
             exit(0);
         default:
             cout << "Error: Invalid option. Please try again." << endl;
