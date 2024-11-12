@@ -8,7 +8,6 @@ COSC 1436 Fall 2024*/
 #include <string>
 using namespace std;
 
-//const int MAX_NUMBERS = 100;// Maximum number of integers that can be stored
 // Function to prompt the user for numbers and store them in the array
 int promptForNumbers(int numbers[], int maxSize) 
 {
@@ -18,14 +17,14 @@ int promptForNumbers(int numbers[], int maxSize)
     {
         cout << "Enter an integral number (0 to stop): ";
         cin >> value;
-        if (cin.fail()) 
+        if ((cin >> value)= false)
         {
             cin.clear(); // clear the error 
-            cin.ignore(10000, '\n'); // discard invalid input
+            cin.ignore(maxSize, '\n'); // discard invalid input
             cout << "Error: Please enter a valid integral number." << endl;
             continue;
         }
-        if (value == 0) 
+        else if (value == 0) 
         {
             break;
         } else if (value < 0) 
@@ -119,8 +118,9 @@ void displayValues(const int numbers[], int count)
 }
 
 // Function to add more values to the array
-int addMoreValues(int numbers[], int count, int maxSize) 
+int addMoreValues(int numbers[], int count, int& maxSize) 
 {
+    //int promptForNumbers(int numbers[], int maxSize);
     int value;
     while (count < maxSize) 
     {
@@ -131,7 +131,7 @@ int addMoreValues(int numbers[], int count, int maxSize)
             cin.clear(); // clear the error flag
             cin.ignore(10000, '\n'); // discard invalid input
             cout << "Error: Please enter a valid integral number." << endl;
-            continue;
+            break;
         }
         if (value == 0) 
         {
@@ -148,7 +148,7 @@ int addMoreValues(int numbers[], int count, int maxSize)
 }
 
 //Function to handle the menu choices takes the user’s choice, the array of numbers, and the count of numbers as input.
-void handleMenuFunction(char choice, int numbers[], int& count) 
+void handleMenuFunction(char choice, int numbers[], int& count, int maxSize) 
 {
     switch (choice) 
     {
@@ -156,7 +156,7 @@ void handleMenuFunction(char choice, int numbers[], int& count)
             displayValues(numbers, count);
             break;
         case '2':
-            count = addMoreValues(numbers, count, MAX_NUMBERS);
+            count = addMoreValues(numbers, count, maxSize);
             break;
         case '3':
             if (count > 0) 
@@ -206,14 +206,14 @@ int main()
     cout << endl;
 
     cout << "Welcome to the Number Management Program!" << endl;
-    const int MAX_NUMBERS = 100;// Maximum number of integers that can be stored
-    int numbers[MAX_NUMBERS]; // Array to store the numbers
-    int count = promptForNumbers(numbers, MAX_NUMBERS); // Get initial numbers from the user
+    const int maxSize = 100;// Maximum number of integers that can be stored
+    int numbers[maxSize]; // Array to store the numbers
+    int count = promptForNumbers(numbers, maxSize); // Get initial numbers from the user
 
     while (true) 
     {
         char choice = displayMenu();// Display menu and get user's choice
-        handleMenuFunction(choice, numbers, count);// Handle the menu choice
+        handleMenuFunction(choice, numbers, count, maxSize);// Handle the menu choice
     }
 }
 
