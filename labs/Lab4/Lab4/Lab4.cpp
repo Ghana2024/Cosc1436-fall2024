@@ -17,10 +17,10 @@ int promptForNumbers(int numbers[], int maxSize)
     {
         cout << "Enter an integral number (0 to stop): ";
         cin >> value;
-        if ((cin >> value)= false)
+        if (cin.fail())
         {
-            cin.clear(); // clear the error 
-            cin.ignore(maxSize, '\n'); // discard invalid input
+           // cin.clear(); // clear the error 
+            //cin.ignore(maxSize, '\n'); // discard invalid input
             cout << "Error: Please enter a valid integral number." << endl;
             continue;
         }
@@ -129,7 +129,7 @@ int addMoreValues(int numbers[], int count, int& maxSize)
         if (cin.fail()) 
         {
             cin.clear(); // clear the error flag
-            cin.ignore(10000, '\n'); // discard invalid input
+            cin.ignore(maxSize); // discard invalid input
             cout << "Error: Please enter a valid integral number." << endl;
             break;
         }
