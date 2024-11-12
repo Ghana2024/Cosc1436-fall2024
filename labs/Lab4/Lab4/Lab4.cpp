@@ -8,7 +8,7 @@ COSC 1436 Fall 2024*/
 #include <string>
 using namespace std;
 
-const int MAX_NUMBERS = 100;// Maximum number of integers that can be stored
+//const int MAX_NUMBERS = 100;// Maximum number of integers that can be stored
 // Function to prompt the user for numbers and store them in the array
 int promptForNumbers(int numbers[], int maxSize) 
 {
@@ -206,6 +206,7 @@ int main()
     cout << endl;
 
     cout << "Welcome to the Number Management Program!" << endl;
+    const int MAX_NUMBERS = 100;// Maximum number of integers that can be stored
     int numbers[MAX_NUMBERS]; // Array to store the numbers
     int count = promptForNumbers(numbers, MAX_NUMBERS); // Get initial numbers from the user
 
