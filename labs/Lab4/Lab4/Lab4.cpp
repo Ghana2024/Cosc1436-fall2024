@@ -12,9 +12,9 @@ using namespace std;
 ///<parameter name= "int numbers[]"> An array of integers where the input numbers will be stored. </parameter> 
 ///<parameter name= "int maxNumbersSize"> An integer representing the maximum size of the numbers array. </parameter>
 /// <return name= "count"> The number of valid entries stored in the numbers array count. </return>
-int promptForNumbers(int numbers[], int maxNumbersSize) 
+int promptForNumbers(int numbers[], int maxNumbersSize, int startCount = 0) 
 {
-    int count = 0;// initial counter for the number of valid entries
+    int count = startCount;// initial counter for the number of valid entries
     int value;
     while(count < maxNumbersSize) 
     {
@@ -129,36 +129,14 @@ void displayValues(const int numbers[], int count)
     }
     cout << endl;
 }
-
-// Function to add more values to the array
-int addMoreValues(int numbers[], int count, int& maxNumbersSize) 
+/// @brief Function to add more alues to the array
+/// @param numbers 
+/// @param count 
+/// @param maxNumbersSize 
+/// @return 
+int addMoreValues(int numbers[], int count, int& maxNumbersSize)
 {
-    int value;
-    while (count < maxNumbersSize) 
-    {
-        cout << "Enter an integral number (0 to stop): ";
-        if (cin >> value)
-        {
-            if (value == 0)
-            {
-                break;
-            } else if (value < 0)
-            {
-                cout << "Error: Negative values are not allowed." << endl;
-            } else
-            {
-                numbers[count++] = value;
-            }
-        }
-        else
-        {
-                cin.clear(); // clear the error 
-                cin.ignore(maxNumbersSize); // discard invalid input
-                cout << "Error: Please enter a valid integral number." << endl;
-                break;
-        }
-    }
-    return count;
+    return promptForNumbers(numbers, maxNumbersSize, count);
 }
 
 //Function to handle the menu choices takes the user’s choice, the array of numbers, and the count of numbers as input.
@@ -167,43 +145,32 @@ void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)//
     switch (choice) 
     {
         case '1':
+            cout << "\nThe numbers are ";
             displayValues(numbers, count);
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
         case '2':
             count = addMoreValues(numbers, count, maxSize);
             break;
         case '3':
-            if (count > 0) 
-            {
                 cout << "Largest value: " << getLargestValue(numbers, count) << endl;
-            } else 
-            {
-                cout << "No values entered." << endl;
-            }
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
         case '4':
-            if (count > 0) 
-            {
                 cout << "Smallest value: " << getSmallestValue(numbers, count) << endl;
-            } else {
-                cout << "No values entered." << endl;
-            }
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
         case '5':
             cout << "Sum of values: " << getSumOfValues(numbers, count) << endl;
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
         case '6':
-            if (count > 0) 
-            {
                 cout << "Mean of values: " << fixed << setprecision(4) << getMeanOfValues(numbers, count) << endl;
-            } else 
-            {
-                cout << "No values entered." << endl;
-            }
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
         case 'Q':
-            cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             cout << "Exiting the program. Goodbye for this time!" << endl;
+            cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             exit(0);
         default:
             cout << "Error: Invalid option. Please try again." << endl;
@@ -226,7 +193,6 @@ int main()
     const int maxNumberSize = 100;// Maximum number of integers that can be stored
     int numbers[maxNumberSize]; // Array to store the numbers
     int count = promptForNumbers(numbers, maxNumberSize); // Get initial numbers from the user
-
     while (true) 
     {
         char choice = displayMenu();// Display menu and get user's choice
