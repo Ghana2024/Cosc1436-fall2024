@@ -131,10 +131,10 @@ void displayValues(const int numbers[], int count)
 }
 
 // Function to add more values to the array
-int addMoreValues(int numbers[], int count, int& maxSize) 
+int addMoreValues(int numbers[], int count, int& maxNumbersSize) 
 {
     int value;
-    while (count < maxSize) 
+    while (count < maxNumbersSize) 
     {
         cout << "Enter an integral number (0 to stop): ";
         if (cin >> value)
@@ -153,7 +153,7 @@ int addMoreValues(int numbers[], int count, int& maxSize)
         else
         {
                 cin.clear(); // clear the error 
-                cin.ignore(maxSize); // discard invalid input
+                cin.ignore(maxNumbersSize); // discard invalid input
                 cout << "Error: Please enter a valid integral number." << endl;
                 break;
         }
