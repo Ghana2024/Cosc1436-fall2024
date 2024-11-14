@@ -8,12 +8,15 @@ COSC 1436 Fall 2024*/
 #include <string>
 using namespace std;
 
-// Function to prompt the user for numbers and store them in the array
-int promptForNumbers(int numbers[], int maxSize) 
+///<Summary> Function to prompt the user for numbers and store them in the array.</summary>
+///<parameter name= "int numbers[]"> An array of integers where the input numbers will be stored. </parameter> 
+///<parameter name= "int maxNumbersSize"> An integer representing the maximum size of the numbers array. </parameter>
+/// <return name= "count"> The number of valid entries stored in the numbers array count. </return>
+int promptForNumbers(int numbers[], int maxNumbersSize) 
 {
-    int count = 0;// Counter for the number of valid entries
+    int count = 0;// initial counter for the number of valid entries
     int value;
-    while(count < maxSize) 
+    while(count < maxNumbersSize) 
     {
         cout << "Enter an integral number (0 to stop): ";
         if (cin >> value)
@@ -27,13 +30,13 @@ int promptForNumbers(int numbers[], int maxSize)
             } 
             else
             {
-                numbers[count++] = value;// Store valid values in the array
+                numbers[count++] = value;// Store valid values (i.e; elements) in the array
             }
         }
         else
         {
                 cin.clear(); // clear the error 
-                cin.ignore(maxSize, '\n'); // discard invalid input and space
+                cin.ignore(maxNumbersSize, '\n'); // discard invalid input and space
                 cout << "Error: Please enter a valid integral number." << endl;
                 continue;
         }
@@ -41,7 +44,7 @@ int promptForNumbers(int numbers[], int maxSize)
     return count;// Return the number of valid entries
 }
 
-// Function to display the main menu and get the user's choice
+///<Summary> Function to display the main menu and get the user's choice </summary>
 char displayMenu() 
 {
     char choice;
@@ -60,34 +63,38 @@ char displayMenu()
     return toupper(choice);// Convert choice to uppercase to handle case insensitivity
 }
 
-// Function where takes the array of numbers as input.
-//Returns the largest value in the array.
+///<Summary> Function where takes the array of numbers as input for largest number.</Summary>
+///<parameter name= "const int numbers[]">The array of integers from which the function will find the largest value.</parameter>
+///<parameter name= "int count">The number of elements in the numbers array.</parameter>
+///<return name ="largestNumber">Get the largest element number in the array.</return>
 int getLargestValue(const int numbers[], int count) 
 {
-    int largest = numbers[0];//initializing largest the first element of the array numbers.
+    int largestNumber = numbers[0];//initializing largest the first element of the array numbers.
     for (int i = 1; i < count; ++i) 
     {
-        if (numbers[i] > largest) 
+        if (numbers[i] > largestNumber) 
         {
-            largest = numbers[i];//updating largest if current element is greater.
+            largestNumber = numbers[i];//updating largest if current element is greater.
         }
     }
-    return largest;
+    return largestNumber;
 }
 
-// Function where takes the array of numbers as input.
-//Returns the smallest value in the array.
+///<Summary> Function where takes the array of numbers as input for smallest number.</Summary>
+///<parameter name= "const int numbers[]">The array of integers from which the function will find the smallest value.</parameter>
+///<parameter name= "int count">The number of elements in the numbers array.</parameter>
+///<return name ="smallestNumber">Get the smallest element number in the array.</return> 
 int getSmallestValue(const int numbers[], int count) 
 {
-    int smallest = numbers[0];
+    int smallestNumber = numbers[0];//initializing smallest the first element of the array numbers.
     for (int i = 1; i < count; ++i) 
     {
-        if (numbers[i] < smallest) 
+        if (numbers[i] < smallestNumber) 
         {
-            smallest = numbers[i];
+            smallestNumber = numbers[i];//updating smallest if current element is lowest value.
         }
     }
-    return smallest;
+    return smallestNumber;
 }
 
 // Function to get the sum of values in the array
@@ -203,6 +210,7 @@ void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)//
     }
 }
 
+/// <summary> Entry point for display Number elements as required by user </summary>   
 int main() 
 {
     //Display Program Title, My Name, Course and Semester
@@ -213,15 +221,16 @@ int main()
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
     cout << endl;
 
+    //Diplaying message for program starting point
     cout << "Welcome to the Number Management Program!" << endl;
-    const int maxSize = 100;// Maximum number of integers that can be stored
-    int numbers[maxSize]; // Array to store the numbers
-    int count = promptForNumbers(numbers, maxSize); // Get initial numbers from the user
+    const int maxNumberSize = 100;// Maximum number of integers that can be stored
+    int numbers[maxNumberSize]; // Array to store the numbers
+    int count = promptForNumbers(numbers, maxNumberSize); // Get initial numbers from the user
 
     while (true) 
     {
         char choice = displayMenu();// Display menu and get user's choice
-        handleMenuFunction(choice, numbers, count, maxSize);// Handle the menu choice
+        handleMenuFunction(choice, numbers, count, maxNumberSize);// Handle the menu choice
     }
 }
 
