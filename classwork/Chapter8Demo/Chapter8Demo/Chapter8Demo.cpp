@@ -152,11 +152,12 @@ void ArrayPointerDemo()
         // Add/substraction
         // Value is always multiplied by sizeOf(T) so you are referencing a whole element
         //arr[index] = arr = index = arr + (sizeof(T) * index)
-        //arr[index] = *(arr + index)
+        //arr[index] = *(arr + index)---
 
         *(ptrValues + index) = index + 1;
-
+        //--QUIZ) raise uo equivalent to two lines up
         //*(ptrValues + (sizeof(int) * index)) = index + 1;
+
     };
 
     /*for (int index = 0; index < 100; ++index)
@@ -228,6 +229,7 @@ void InitializeEmployeeByRef(int& employee)
 //Employee is pass by value (memory address), any changes to employee are visible to caller
 void InitializeEmployeeByPtr(int* employee)
 {
+    //valiadet 
     if(employee) //employee != nullptr || employee != Null
     {
        // employee++;
@@ -252,6 +254,101 @@ void PassByRefVsPointerDemo()
     InitializeEmployeeByPtr(null);
 }
 
+Employee* CreateEmployee()
+{
+    Employee* ptrEmployee = new Employee();
+
+    return ptrEmployee;
+}
+
+int* FindElement(int value[], int size, int desiredValue)
+{
+    for (int index = 0; index < size; ++index)
+    {
+        if (value[index] == desiredValue)
+            return &value[index];
+    };
+    return nullptr;
+}
+
+double g_SomeVariable = 9.18175;
+double* GetConstant()
+{
+    return &g_SomeVariable;
+}
+
+double* DontDoThis()
+{
+    double someValue = 1.2914;
+
+   return &someValue;
+}
+
+void PointerReturnDemo()
+{
+    //Pointer as return type
+    //New instance from function(caller is responsible for lifetime)
+    //RAII- Resource Acquistion is Initialization
+    Employee* pNewEmployee = createEmployee();
+    delete pNewEmployee;
+
+    //Pointer is to memory that the caller
+    int values[100] = {0};
+    values[50] = 20;
+    int* pMatch = FindElement(values, 100. 20);
+
+    //Pointer to global object
+    double* pConstant = GetConstant();
+}
+
+//message is a refrence to a constant string
+//reference for pref reasons
+//also work --const std::string&
+int ReadInt(std::string const& message)
+
+{
+    //Constant, cannot modify
+    //message = "Broke";
+    std::cout << message;
+
+    int value;
+    std::cin >> value;
+
+}
+void ConstantPointerDemo()
+{
+    std::string message = "Enter a number: ";
+    int value = ReadInt("Enter a number");
+   // int value = ReadInt(message);
+
+    //non-const vs const
+    int nonconstValue = 10;
+    const int constVaue = 20;
+
+    //const are read only;
+    //constValue = 30;
+
+    int* pNonConst = &nonconstValue;
+    *pNonConst = 40;
+
+    //can add const to some thing(non-const to const is allowed)
+    // Cannot take away const from something (const to non-const is not allowed)
+    //pNonConst = &constValue;
+    *pNonConst = 50;
+    //non-const to const is allowed
+    int const* pConst = &constValue;
+    pConst = &nonconstValue;
+
+    nonconstValue = (int)45.6; //c-style
+    nonconstValue = static_cast<int>(45.6); //C== cast
+
+    //Const_cast<T> casts T to either const T or T depending on what it is
+
+    pConst = const_cast<int*>(&nonconstValue);
+    pNonConst = const_cast<int*>(&constVaue);
+    *pNonConst = 50;
+}
+
 
 int main()
 {
@@ -266,6 +363,8 @@ int main()
     //if ( choice == N || choice == n)
     //   break;
     ArrayPointerDemo();
+
+    
         
 }
 
