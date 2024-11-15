@@ -8,10 +8,14 @@ COSC 1436 Fall 2024*/
 #include <string>
 using namespace std;
 
-///<Summary> Function to prompt the user for numbers and store them in the array.</summary>
-///<parameter name= "int numbers[]"> An array of integers where the input numbers will be stored. </parameter> 
-///<parameter name= "int maxNumbersSize"> An integer representing the maximum size of the numbers array. </parameter>
-/// <return name= "count"> The number of valid entries stored in the numbers array count. </return>
+/// @brief function is designed to prompt the user to input numbers, storing them in an array. 
+/// It ensures that the number of inputs does not exceed the specified maximum size of the array.
+/// @param numbers;an array of integers where the function will store the numbers input by the user. 
+/// @param maxNumbersSize ; an integer where the maximum size of the numbers array.
+/// The maximum number of integers the function can store.
+/// @param startCount; indicates the number of elements already present in the array before the function starts adding new numbers.
+/// @return count;the total number of numbers successfully stored in the array after the function completes. 
+/// This includes any pre-existing numbers plus the new ones added by the function.
 int promptForNumbers(int numbers[], int maxNumbersSize, int startCount = 0) 
 {
     int count = startCount;// initial counter for the number of valid entries
@@ -129,7 +133,7 @@ void displayValues(const int numbers[], int count)
     }
     cout << endl;
 }
-/// @brief Function to add more alues to the array
+/// @brief Function to add more values to the array
 /// @param numbers 
 /// @param count 
 /// @param maxNumbersSize 
@@ -139,7 +143,11 @@ int addMoreValues(int numbers[], int count, int& maxNumbersSize)
     return promptForNumbers(numbers, maxNumbersSize, count);
 }
 
-//Function to handle the menu choices takes the user’s choice, the array of numbers, and the count of numbers as input.
+/// @brief Function to handle the menu choices takes the user's choice.
+/// @param choice 
+/// @param numbers 
+/// @param count 
+/// @param maxSize 
 void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)// 
 {
     switch (choice) 
@@ -177,7 +185,8 @@ void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)//
     }
 }
 
-/// <summary> Entry point for display Number elements as required by user </summary>   
+/// @brief Main header file and entry of the program starting point.
+/// @return choice with detail of the choice result.
 int main() 
 {
     //Display Program Title, My Name, Course and Semester
