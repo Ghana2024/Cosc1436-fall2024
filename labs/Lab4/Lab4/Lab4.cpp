@@ -11,9 +11,8 @@ using namespace std;
 /// @brief function is designed to prompt the user to input numbers, storing them in an array. 
 /// It ensures that the number of inputs does not exceed the specified maximum size of the array.
 /// @param numbers;an array of integers where the function will store the numbers input by the user. 
-/// @param maxNumbersSize ; an integer where the maximum size of the numbers array.
-/// The maximum number of integers the function can store.
-/// @param startCount; indicates the number of elements already present in the array before the function starts adding new numbers.
+/// @param maxNumbersSize ; an integer where the maximum size of the numbers array can store.
+/// @param startCount; indicates the number of elements present, in the array before the function starts at 0 adding new numbers.
 /// @return count;the total number of numbers successfully stored in the array after the function completes. 
 /// This includes any pre-existing numbers plus the new ones added by the function.
 int promptForNumbers(int numbers[], int maxNumbersSize, int startCount = 0) 
@@ -48,29 +47,30 @@ int promptForNumbers(int numbers[], int maxNumbersSize, int startCount = 0)
     return count;// Return the number of valid entries
 }
 
-///<Summary> Function to display the main menu and get the user's choice </summary>
+/// @brief; function to display the main menu and get the user's choice 
+/// @return; The function returns the user's choice as an uppercase character.
 char displayMenu() 
 {
     char choice;
     cout << "\nMain Menu:" << endl;
     cout << setw(15) << setfill('=') << "" << setfill(' ') << endl;
-    cout << "1. Display values" << endl;
-    cout << "2. Add more values" << endl;
-    cout << "3. Get largest value" << endl;
-    cout << "4. Get smallest value" << endl;
-    cout << "5. Get sum of values" << endl;
-    cout << "6. Get mean of values" << endl;
+    cout << "D. Display values" << endl;
+    cout << "A. Add more values" << endl;
+    cout << "L. Get largest value" << endl;
+    cout << "S. Get smallest value" << endl;
+    cout << "T. Get total sum of values" << endl;
+    cout << "M. Get mean of values" << endl;
     cout << "Q. Quit" << endl;
     cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-    cout << "Select an option 1 to 6 or Q for Exit the Program: ";
+    cout << "Select an option or Q for Exit the Program: ";
     cin >> choice;
     return toupper(choice);// Convert choice to uppercase to handle case insensitivity
 }
 
-///<Summary> Function where takes the array of numbers as input for largest number.</Summary>
-///<parameter name= "const int numbers[]">The array of integers from which the function will find the largest value.</parameter>
-///<parameter name= "int count">The number of elements in the numbers array.</parameter>
-///<return name ="largestNumber">Get the largest element number in the array.</return>
+/// @brief; the function getLargestValue() finds and returns the largest value in an array of integers.
+/// @param const int numbers;const keyword indicates that the array elements will not be modified by the function.
+/// @param count;the number of elements in the array. 
+/// @return largestNumber;function returns an integer, which is the largest value found in the array. 
 int getLargestValue(const int numbers[], int count) 
 {
     int largestNumber = numbers[0];//initializing largest the first element of the array numbers.
@@ -84,10 +84,10 @@ int getLargestValue(const int numbers[], int count)
     return largestNumber;
 }
 
-///<Summary> Function where takes the array of numbers as input for smallest number.</Summary>
-///<parameter name= "const int numbers[]">The array of integers from which the function will find the smallest value.</parameter>
-///<parameter name= "int count">The number of elements in the numbers array.</parameter>
-///<return name ="smallestNumber">Get the smallest element number in the array.</return> 
+/// @brief;the function getSmallestValue() finds and returns the smallest value in an array of integers.
+/// @param const int numbers[];const keyword indicates that the array elements will not be modified by the function. 
+/// @param count;the number of elements in the array.
+/// @return smallestNumber; function returns an integer, which is the largest value found in the array.
 int getSmallestValue(const int numbers[], int count) 
 {
     int smallestNumber = numbers[0];//initializing smallest the first element of the array numbers.
@@ -101,13 +101,16 @@ int getSmallestValue(const int numbers[], int count)
     return smallestNumber;
 }
 
-// Function to get the sum of values in the array
+/// @brief;function getSumOfValues() calculates and returns the sum of all elements in an array of integers.
+/// @param const int numbers[];indicates that the function will not modify the array elements. 
+/// @param count;the number of elements in the array. 
+/// @return;function returns an integer, which is the sum of all the values in the array.
 int getSumOfValues(const int numbers[], int count) 
 {
     int sum = 0;
     for (int i = 0; i < count; ++i) 
     {
-        sum += numbers[i];//adding each element to sum
+        sum += numbers[i];//adding each element
     }
     return sum;
 }
@@ -148,31 +151,31 @@ int addMoreValues(int numbers[], int count, int& maxNumbersSize)
 /// @param numbers 
 /// @param count 
 /// @param maxSize 
-void handleMenuFunction(char choice, int numbers[], int& count, int maxSize)// 
+void handleMenuFunction(char choice, int numbers[], int& count, int maxSize) 
 {
     switch (choice) 
     {
-        case '1':
+        case 'D':
             cout << "\nThe numbers are ";
             displayValues(numbers, count);
             cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
-        case '2':
+        case 'A':
             count = addMoreValues(numbers, count, maxSize);
             break;
-        case '3':
+        case 'L':
                 cout << "Largest value: " << getLargestValue(numbers, count) << endl;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
-        case '4':
+        case 'S':
                 cout << "Smallest value: " << getSmallestValue(numbers, count) << endl;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
-        case '5':
+        case 'T':
             cout << "Sum of values: " << getSumOfValues(numbers, count) << endl;
             cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
-        case '6':
+        case 'M':
                 cout << "Mean of values: " << fixed << setprecision(4) << getMeanOfValues(numbers, count) << endl;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
             break;
