@@ -163,7 +163,7 @@ void ArrayPointerDemo()
     /*for (int index = 0; index < 100; ++index)
         value[index] = index + 1;*/
 
-    DisplayIntArray(values. 100);
+    DisplayIntArray(values, 100);
 
     int localVariable = 100;
     DisplayIntArray(&localVariable, 1);
@@ -251,7 +251,7 @@ void PassByRefVsPointerDemo()
     //Pass by value -must pass the address of variable
     InitializeEmployeeByPtr(&employeeId);
 
-    InitializeEmployeeByPtr(null);
+    //InitializeEmployeeByPtr(null);
 }
 
 Employee* CreateEmployee()
@@ -288,17 +288,17 @@ void PointerReturnDemo()
 {
     //Pointer as return type
     //New instance from function(caller is responsible for lifetime)
-    //RAII- Resource Acquistion is Initialization
-    Employee* pNewEmployee = createEmployee();
-    delete pNewEmployee;
+    //RAII- Resource Acquistion is Initialization between caller and 
+    Employee* pNewEmployee = new Employee();
+    delete pNewEmployee;//first sceniro(pointer to functiuon)
 
     //Pointer is to memory that the caller
     int values[100] = {0};
     values[50] = 20;
-    int* pMatch = FindElement(values, 100. 20);
+    int* pMatch = FindElement(values, 100, 20);// second ssceniro
 
     //Pointer to global object
-    double* pConstant = GetConstant();
+    double* pConstant = GetConstant();// thid sceniro
 }
 
 //message is a refrence to a constant string
