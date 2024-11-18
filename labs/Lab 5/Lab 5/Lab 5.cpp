@@ -1,17 +1,9 @@
-#include <iostream>
 // Lab 5
 // Your Name
 // Course and Semester
 
 #include <iostream>
 using namespace std;
-
-void DisplayProgramInfo() 
-{
-    cout << "Program Title: Lab 5" << endl;
-    cout << "Your Name" << endl;
-    cout << "Course and Semester" << endl;
-}
 
 void DisplayMainMenu() 
 {
@@ -107,7 +99,9 @@ int main()
     LinkedList list;
     char choice;
 
-    DisplayProgramInfo();
+    cout << "Program Title: Lab 5" << endl;
+    cout << "Your Name" << endl;
+    cout << "Course and Semester" << endl;
 
     do 
     {
