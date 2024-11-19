@@ -16,6 +16,7 @@ void DisplayMainMenu()
     cout << "Enter your choice: ";
 }
 
+
 struct Node 
 {
     int Value = 0;
@@ -27,7 +28,8 @@ struct LinkedList
     Node* Head = nullptr;
 };
 
-void AddValue(LinkedList& list, int value) {
+void AddValue(LinkedList& list, int value) 
+{
     Node* newNode = new Node();
     newNode->Value = value;
 
@@ -93,23 +95,16 @@ void ClearList(LinkedList& list)
     }
     list.Head = nullptr;
 }
-
-int main() 
+int handleDisplayMenu(LinkedList& list)
 {
-    LinkedList list;
     char choice;
-
-    cout << "Program Title: Lab 5" << endl;
-    cout << "Your Name" << endl;
-    cout << "Course and Semester" << endl;
-
-    do 
+    do
     {
         DisplayMainMenu();
         cin >> choice;
         choice = tolower(choice);
 
-        switch (choice) 
+        switch (choice)
         {
             case '1':
             {
@@ -148,6 +143,17 @@ int main()
         }
     } while (choice != '5');
 
+    return 0;
+
+}
+
+int main() 
+{
+    cout << "Program Title: Lab 5" << endl;
+    cout << "Your Name" << endl;
+    cout << "Course and Semester" << endl;
+    LinkedList list;
+    handleDisplayMenu(list);
     return 0;
 }
 
