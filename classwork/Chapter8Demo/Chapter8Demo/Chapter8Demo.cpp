@@ -125,8 +125,8 @@ void DynamicMemoryDemo()
     };
 }
 
-//Poineters can be passed as parameters
-//void DisplayInt ArrayDemo(int aee[], int size)
+//Pointers can be passed as parameters
+//void DisplayInt ArrayDemo(int arr[], int size)
 void DisplayIntArrayDemo(int* arr, int size)
 {
     int values[100];
@@ -163,10 +163,10 @@ void ArrayPointerDemo()
     /*for (int index = 0; index < 100; ++index)
         value[index] = index + 1;*/
 
-    DisplayIntArray(values, 100);
+    DisplayIntArrayDemo(values, 100);
 
     int localVariable = 100;
-    DisplayIntArray(&localVariable, 1);
+    DisplayIntArrayDemo(&localVariable, 1);
 
 }
 
@@ -305,15 +305,12 @@ void PointerReturnDemo()
 //reference for pref reasons
 //also work --const std::string&
 int ReadInt(std::string const& message)
-
 {
     //Constant, cannot modify
     //message = "Broke";
     std::cout << message;
-
     int value;
     std::cin >> value;
-
 }
 void ConstantPointerDemo()
 {
@@ -323,7 +320,7 @@ void ConstantPointerDemo()
 
     //non-const vs const
     int nonconstValue = 10;
-    const int constVaue = 20;
+    const int constValue = 20;
 
     //const are read only;
     //constValue = 30;
@@ -345,7 +342,7 @@ void ConstantPointerDemo()
     //Const_cast<T> casts T to either const T or T depending on what it is
 
     pConst = const_cast<int*>(&nonconstValue);
-    pNonConst = const_cast<int*>(&constVaue);
+    pNonConst = const_cast<int*>(&constValue);
     *pNonConst = 50;
 }
 
@@ -362,9 +359,7 @@ int main()
     //std::cin >> choice;
     //if ( choice == N || choice == n)
     //   break;
-    ArrayPointerDemo();
-
-    
+    ArrayPointerDemo();   
         
 }
 

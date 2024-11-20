@@ -259,11 +259,6 @@ void TableDemo()
     //};
 }
 
-int main()
-{
-    TableDemo();
-}
-
 void NameArrayDemo()
 {
     //Array is a set of related data
@@ -303,3 +298,9 @@ void NameArrayDemo()
             std::cout << students[index] << std::endl;
     };
 }
+
+int main()
+{
+    TableDemo();
+}
+
