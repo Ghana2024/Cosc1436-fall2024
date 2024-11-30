@@ -150,8 +150,8 @@ int handleDisplayMenu(LinkedList& list)
 int main() 
 {
     cout << "Program Title: Lab 5" << endl;
-    cout << "Your Name" << endl;
-    cout << "Course and Semester" << endl;
+    cout << "Name: Ghana Dahal" << endl;
+    cout << " Fall " << endl;
     LinkedList list;
     handleDisplayMenu(list);
     return 0;
