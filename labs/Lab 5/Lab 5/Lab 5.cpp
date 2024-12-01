@@ -6,7 +6,7 @@ COSC 1436 Fall 2024*/
 #include <iomanip>
 #include <cctype>
 using namespace std;
-/// @brief 
+/// @brief function returns an integer with detail of the choice result.
 void DisplayMainMenu() 
 {
     cout << "Main Menu:" << endl;
@@ -18,47 +18,51 @@ void DisplayMainMenu()
     cout << "Enter your choice: ";
 }
 
-
+/// @brief Structure representing a node in a linked list
 struct Node 
 {
-    int Value = 0;
-    Node* Next = nullptr;
+    int Value = 0;// The value stored in the node
+    Node* Next = nullptr;// Pointer to the next node in the list
 };
 
+/// @brief Structure representing a linked list
 struct LinkedList 
 {
-    Node* Head = nullptr;
+    Node* Head = nullptr;// Pointer to the first node in the list
 };
 
+/// @brief Adds a new value to the end of the linked list
+/// @param list Reference to the linked list
+/// @param value The value to be added to the list 
 void AddValue(LinkedList& list, int value) 
 {
-    Node* newNode = new Node();
-    newNode->Value = value;
-
+    Node* newNode = new Node();// Create a new node
+    newNode->Value = value;// Set the value of the new node
     if (list.Head == nullptr) 
     {
-        list.Head = newNode;
+        list.Head = newNode;// If the list is empty, set the new node as the head
     } 
     else 
     {
-        Node* current = list.Head;
+        Node* current = list.Head;// Start at the head of the list
         while (current->Next != nullptr) 
         {
-            current = current->Next;
+            current = current->Next;// Traverse to the end of the list
         }
-        current->Next = newNode;
+        current->Next = newNode;// Link the new node at the end of the list
     }
 }
-
+/// @brief Prints all values in the linked list
+/// @param list Reference to the linked list
 void ListValues(const LinkedList& list) 
 {
-    Node* current = list.Head;
+    Node* current = list.Head;// Start at the head of the list
     while (current != nullptr) 
     {
-        cout << current->Value << " ";
-        current = current->Next;
+        cout << current->Value << " ";// Print the value of the current node
+        current = current->Next;       // Move to the next node
     }
-    cout << endl;
+    cout << endl;// Print a newline at the end
 }
 
 void RemoveValue(LinkedList& list, int value) 
