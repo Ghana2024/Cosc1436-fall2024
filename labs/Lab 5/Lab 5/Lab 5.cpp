@@ -1,8 +1,10 @@
-// Lab 5
-// Your Name
-// Course and Semester
+/* Program title:Lab 5
+ Ghana Dahal
+COSC 1436 Fall 2024*/
 
 #include <iostream>
+#include <iomanip>
+#include <cctype>
 using namespace std;
 
 void DisplayMainMenu() 
@@ -149,9 +151,15 @@ int handleDisplayMenu(LinkedList& list)
 
 int main() 
 {
-    cout << "Program Title: Lab 5" << endl;
-    cout << "Name: Ghana Dahal" << endl;
-    cout << " Fall " << endl;
+    //Display Basic Program Title,Name, Course and Semester
+    cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
+    cout << " Program title:Lab 4 \n";
+    cout << " Ghana Dahal \n";
+    cout << " COSC 1436 Fall 2024 \n";
+    cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
+    cout << endl;
+
+    //Diplaying message for program starting point
     LinkedList list;
     handleDisplayMenu(list);
     return 0;
