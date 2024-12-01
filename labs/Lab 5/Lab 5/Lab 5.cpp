@@ -6,15 +6,15 @@ COSC 1436 Fall 2024*/
 #include <iomanip>
 #include <cctype>
 using namespace std;
-
+/// @brief 
 void DisplayMainMenu() 
 {
     cout << "Main Menu:" << endl;
-    cout << "1. Add Value" << endl;
-    cout << "2. List Values" << endl;
-    cout << "3. Remove Value" << endl;
-    cout << "4. Clear List" << endl;
-    cout << "5. Quit" << endl;
+    cout << "A. Add Value" << endl;
+    cout << "L. List Values" << endl;
+    cout << "R. Remove Value" << endl;
+    cout << "C. Clear List" << endl;
+    cout << "E. Quit" << endl;
     cout << "Enter your choice: ";
 }
 
@@ -97,6 +97,13 @@ void ClearList(LinkedList& list)
     }
     list.Head = nullptr;
 }
+
+/// @brief Function to handle the menu choices takes the user's choice.
+/// @param choice;user's menu choice which determines the action to be performed. 
+/// @param numbers[];an array of integers that stores the values to be processed.
+/// @param int& count;A reference to an integer representing the current number of elements in the array. 
+/// This allows the function to update the count if more values are added. 
+/// @param maxValuesSize;The maximum size,how many values can be stored.
 int handleDisplayMenu(LinkedList& list)
 {
     char choice;
@@ -104,30 +111,34 @@ int handleDisplayMenu(LinkedList& list)
     {
         DisplayMainMenu();
         cin >> choice;
-        choice = tolower(choice);
+        choice = toupper(choice);
 
         switch (choice)
         {
-            case '1':
+            case 'A':
             {
                 int value;
                 cout << "Enter value to add: ";
                 cin >> value;
                 AddValue(list, value);
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
-            case '2':
+            case 'L':
+                cout << "\nThe numbers are ";
                 ListValues(list);
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
-            case '3':
+            case 'R':
             {
                 int value;
                 cout << "Enter value to remove: ";
                 cin >> value;
                 RemoveValue(list, value);
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
-            case '4':
+            case 'C':
             {
                 char confirm;
                 cout << "Are you sure you want to clear the list? (y/n): ";
@@ -137,13 +148,13 @@ int handleDisplayMenu(LinkedList& list)
                 }
                 break;
             }
-            case '5':
+            case 'E':
                 cout << "Exiting program." << endl;
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != '5');
+    } while (choice != 'E');
 
     return 0;
 
