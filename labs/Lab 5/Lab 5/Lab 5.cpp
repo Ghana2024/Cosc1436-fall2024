@@ -111,35 +111,70 @@ void ClearList(LinkedList& list)
 /// @return Returns 0 upon exiting the menu
 int handleDisplayMenu(LinkedList& list)
 {
-    char choice;
+    char choice;// Variable to store user's menu choice
     do
     {
-        DisplayMainMenu();
-        cin >> choice;
-        choice = toupper(choice);
-
+        DisplayMainMenu();// Display the main menu
+        cin >> choice;// Get the user's choice
+        choice = toupper(choice);// Convert choice to uppercase for consistency
         switch (choice)
         {
             case 'A':
             {
                 int value;
-                cout << "Enter value to add: ";
-                cin >> value;
-                AddValue(list, value);
+                char addMore;
+                do {
+                    cout << "Enter value to add: ";
+                    cin >> value;
+                    AddValue(list, value); // Add the value to the list
+                    cout << "Do you want to add another number? (y/n): ";
+                    cin >> addMore;
+                } while (tolower(addMore) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
             case 'L':
-                cout << "\nThe numbers are ";
-                ListValues(list);
+                if (list.Head == nullptr) 
+                {
+                    cout << "No numbers in the list." << endl;
+                } else 
+                {
+                    cout << "\nThe numbers are ";
+                    ListValues(list); // List all values in the list
+                }
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             case 'R':
             {
-                int value;
-                cout << "Enter value to remove: ";
-                cin >> value;
-                RemoveValue(list, value);
+                if (list.Head == nullptr) 
+                {
+                    cout << "No numbers in the list to remove." << endl;
+                } 
+                else 
+                {
+                    int value;
+                    cout << "Enter value to remove: ";
+                    cin >> value;
+                    Node* current = list.Head;
+                    bool found = false;
+                    while (current != nullptr) 
+                    {
+                        if (current->Value == value) 
+                        {
+                            found = true;
+                            break;
+                        }
+                        current = current->Next;
+                    }
+                    if (found) 
+                    {
+                        RemoveValue(list, value); // Remove the specified value from the list
+                    } 
+                    else 
+                    {
+                        cout << "Value not found in the list." << endl;
+                    }
+                }
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
@@ -148,20 +183,21 @@ int handleDisplayMenu(LinkedList& list)
                 char confirm;
                 cout << "Are you sure you want to clear the list? (y/n): ";
                 cin >> confirm;
-                if (tolower(confirm) == 'y') {
-                    ClearList(list);
+                if (tolower(confirm) == 'y') 
+                {
+                    ClearList(list);// Clear the entire list if confirmed
                 }
                 break;
             }
             case 'E':
-                cout << "Exiting program." << endl;
+                cout << "Exiting program." << endl;// Exit the program
                 break;
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Invalid choice. Please try again." << endl;// Handle invalid choices
         }
-    } while (choice != 'E');
+    } while (choice != 'E');// Continue until the user chooses to exit
 
-    return 0;
+    return 0;// Return 0 upon exiting the menu
 
 }
 
@@ -169,7 +205,7 @@ int main()
 {
     //Display Basic Program Title,Name, Course and Semester
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
-    cout << " Program title:Lab 4 \n";
+    cout << " Program title:Lab 5 \n";
     cout << " Ghana Dahal \n";
     cout << " COSC 1436 Fall 2024 \n";
     cout << setw(25) << setfill('*') << "" << setfill(' ') << endl;
