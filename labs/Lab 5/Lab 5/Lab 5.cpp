@@ -64,50 +64,51 @@ void ListValues(const LinkedList& list)
     }
     cout << endl;// Print a newline at the end
 }
-
+ 
+/// @brief Removes the first occurrence of a value from the linked list
+/// @param list Reference to the linked list
+/// @param value The value to be removed from the list
 void RemoveValue(LinkedList& list, int value) 
 {
-    Node* current = list.Head;
-    Node* previous = nullptr;
-
+    Node* current = list.Head;//The value to be removed from the list
+    Node* previous = nullptr; // Pointer to the previous node
     while (current != nullptr) 
     {
         if (current->Value == value) 
         {
             if (previous == nullptr) 
             {
-                list.Head = current->Next;
+                list.Head = current->Next;// If the node to be removed is the head
             } 
             else 
             {
-                previous->Next = current->Next;
+                previous->Next = current->Next;// Link the previous node to the next node
             }
-            delete current;
+            delete current;// Delete the node
             return;
         }
-        previous = current;
+        previous = current;// Move to the next node
         current = current->Next;
     }
 }
 
+/// @brief Clears all nodes from the linked list
+/// @param list Reference to the linked list
 void ClearList(LinkedList& list) 
 {
-    Node* current = list.Head;
+    Node* current = list.Head;// Start at the head of the list
     while (current != nullptr) 
     {
-        Node* next = current->Next;
-        delete current;
-        current = next;
+        Node* next = current->Next;// Store the next node
+        delete current; // Delete the current node
+        current = next; // Move to the next node
     }
-    list.Head = nullptr;
+    list.Head = nullptr; // Set the head to nullptr after clearing the list
 }
 
-/// @brief Function to handle the menu choices takes the user's choice.
-/// @param choice;user's menu choice which determines the action to be performed. 
-/// @param numbers[];an array of integers that stores the values to be processed.
-/// @param int& count;A reference to an integer representing the current number of elements in the array. 
-/// This allows the function to update the count if more values are added. 
-/// @param maxValuesSize;The maximum size,how many values can be stored.
+/// @brief Handles the display menu and user input for the linked list operations
+/// @param list Reference to the linked list
+/// @return Returns 0 upon exiting the menu
 int handleDisplayMenu(LinkedList& list)
 {
     char choice;
