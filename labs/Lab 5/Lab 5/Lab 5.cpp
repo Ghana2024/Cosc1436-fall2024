@@ -123,14 +123,14 @@ int handleDisplayMenu(LinkedList& list)
             case 'A':
             {
                 int value;
-                char addMore;
+                char addMoreValue;
                 do {
                     cout << "Enter value to add: ";
                     cin >> value;
                     AddValue(list, value); // Add the value to the list
                     cout << "Do you want to add another number? (y/n): ";
-                    cin >> addMore;
-                } while (tolower(addMore) == 'y');
+                    cin >> addMoreValue;
+                } while (tolower(addMoreValue) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
