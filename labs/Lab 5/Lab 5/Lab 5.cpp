@@ -128,7 +128,7 @@ int handleDisplayMenu(LinkedList& list)
                     cout << "Enter value to add: ";
                     cin >> value;
                     AddValue(list, value); // Add the value to the list
-                    cout << "Do you want to add another number? (y/n): ";
+                    cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
                     cin >> addMoreValue;
                 } while (tolower(addMoreValue) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
@@ -182,7 +182,7 @@ int handleDisplayMenu(LinkedList& list)
             case 'C':
             {
                 char confirm;
-                cout << "Are you sure you want to clear the list? (y/n): ";
+                cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise enter any other character: ";
                 cin >> confirm;
                 if (tolower(confirm) == 'y') 
                 {
