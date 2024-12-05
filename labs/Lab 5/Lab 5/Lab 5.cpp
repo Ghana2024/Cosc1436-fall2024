@@ -6,6 +6,7 @@ COSC 1436 Fall 2024*/
 #include <iomanip>
 #include <cctype>
 using namespace std;
+
 /// @brief function returns an integer with detail of the choice result.
 void DisplayMainMenu() 
 {
@@ -31,9 +32,9 @@ struct LinkedList
     Node* Head = nullptr;// Pointer to the first node in the list
 };
 
-/// @brief Adds a new value to the end of the linked list
-/// @param list Reference to the linked list
-/// @param value The value to be added to the list 
+/// @brief AddValue();Adds a new value to the end of the linked list
+/// @param LinkedList& list; Reference to the linked list
+/// @param value; The value to be added to the list 
 void AddValue(LinkedList& list, int value) 
 {
     Node* newNode = new Node();// Create a new node
@@ -52,8 +53,8 @@ void AddValue(LinkedList& list, int value)
         current->Next = newNode;// Link the new node at the end of the list
     }
 }
-/// @brief Prints all values in the linked list
-/// @param list Reference to the linked list
+/// @brief ListValues(); Prints all values in the linked list
+/// @param LinkedList& ; Reference to the linked list
 void ListValues(const LinkedList& list) 
 {
     Node* current = list.Head;// Start at the head of the list
@@ -65,9 +66,9 @@ void ListValues(const LinkedList& list)
     cout << endl;// Print a newline at the end
 }
  
-/// @brief Removes the first occurrence of a value from the linked list
-/// @param list Reference to the linked list
-/// @param value The value to be removed from the list
+/// @brief RemoveValue();Removes the first occurrence of a value from the linked list
+/// @param LinkedList& list; Reference to the linked list
+/// @param value; The value to be removed from the list
 void RemoveValue(LinkedList& list, int value) 
 {
     Node* current = list.Head;//The value to be removed from the list
@@ -92,8 +93,8 @@ void RemoveValue(LinkedList& list, int value)
     }
 }
 
-/// @brief Clears all nodes from the linked list
-/// @param list Reference to the linked list
+/// @brief ClearList(); Clears all nodes from the linked list
+/// @param LinkedList& list;list Reference to the linked list
 void ClearList(LinkedList& list) 
 {
     Node* current = list.Head;// Start at the head of the list
@@ -106,8 +107,8 @@ void ClearList(LinkedList& list)
     list.Head = nullptr; // Set the head to nullptr after clearing the list
 }
 
-/// @brief Handles the display menu and user input for the linked list operations
-/// @param list Reference to the linked list
+/// @brief handleDisplayMenu(); Handles the display menu and user input for the linked list operations
+/// @param LinkedList& list; list Reference to the linked list
 /// @return Returns 0 upon exiting the menu
 int handleDisplayMenu(LinkedList& list)
 {
@@ -188,6 +189,8 @@ int handleDisplayMenu(LinkedList& list)
                     ClearList(list);// Clear the entire list if confirmed
                 }
                 break;
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+
             }
             case 'E':
                 cout << "Exiting program." << endl;// Exit the program
