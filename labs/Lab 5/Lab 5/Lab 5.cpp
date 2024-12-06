@@ -196,9 +196,14 @@ int handleDisplayMenu(LinkedList& list)
                 char confirm;
                 cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise enter any other character: ";
                 cin >> confirm;
-                if (tolower(confirm) == 'y') 
+                if (list.Head == nullptr)
                 {
-                    ClearList(list);// Clear the entire list if confirmed
+                    cout << "No numbers found to clear in the List." << endl;
+
+                    if (tolower(confirm) == 'y')
+                    {
+                        ClearList(list);// Clear the entire list if confirmed
+                    }
                 }
                 break;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
