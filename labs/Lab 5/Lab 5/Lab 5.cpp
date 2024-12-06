@@ -127,13 +127,25 @@ int handleDisplayMenu(LinkedList& list)
                 do {
                     cout << "Enter value to add: ";
                     cin >> value;
-                    AddValue(list, value); // Add the value to the list
+                      while (!(cin >> value))
+                      {
+                        cout << "Invalid input. Please enter an integer: ";
+                        cin.clear();
+                        break;
+                      }
+                      //else
+                      //{
+                      //    AddValue(list, value); // Add the value to the list
+                      //    cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
+                      //    cin >> addMoreValue;
+                      //}
                     cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
                     cin >> addMoreValue;
                 } while (tolower(addMoreValue) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-                break;
+               // break;
             }
+            break;
             case 'L':
                 if (list.Head == nullptr) 
                 {
