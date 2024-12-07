@@ -124,34 +124,29 @@ int handleDisplayMenu(LinkedList& list)
             {
                 int value;
                 char addMoreValue;
-                do {
+                do
+                {
                     cout << "Enter value to add: ";
-                    cin >> value;
-                     /* while (!(cin >> value))
-                      {
+                    while (!(cin >> value))
+                    {
                         cout << "Invalid input. Please enter an integer: ";
-                        cin.clear();
-                        break;
-                      }*/
-                      
-                      //else
-                      //{
-                       AddValue(list, value); // Add the value to the list
-                      //    cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
-                      //    cin >> addMoreValue;
-                      //}
-                    cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
+                        cin.clear(); // Clear the error flag
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');// Ignore invalid input
+                    }
+                    AddValue(list, value); // Add the value to the list
+                    cout << "Do you want to add another number select 'y' or 'Y',press any other charcter return to main menu : ";
                     cin >> addMoreValue;
                 } while (tolower(addMoreValue) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
                 break;
             }
-            //break;
+            break;
             case 'L':
                 if (list.Head == nullptr) 
                 {
-                    cout << "No numbers in the list." << endl;
-                } else 
+                    cout << "\nNo numbers in the list." << endl;
+                } 
+                else 
                 {
                     cout << "\nThe numbers are ";
                     ListValues(list); // List all values in the list
@@ -160,33 +155,45 @@ int handleDisplayMenu(LinkedList& list)
                 break;
             case 'R':
             {
-                if (list.Head == nullptr) 
+                if (list.Head == nullptr)
                 {
-                    cout << "No numbers in the list to remove." << endl;
-                } 
-                else 
+                    cout << "\nNo numbers in the list to remove." << endl;
+                } else
                 {
                     int value;
-                    cout << "Enter value to remove: ";
-                    cin >> value;
-                    Node* current = list.Head;
-                    bool found = false;
-                    while (current != nullptr) 
+                    bool validInput = false;
+                    while (!validInput)
                     {
-                        if (current->Value == value) 
+                        cout << "Enter value to remove: ";
+                        if (cin >> value)
                         {
-                            found = true;
-                            break;
+                            Node* current = list.Head;
+                            bool found = false;
+                            while (current != nullptr)
+                            {
+                                if (current->Value == value)
+                                {
+                                    found = true;
+                                    break;
+                                }
+                                current = current->Next;
+                            }
+                            if (found)
+                            {
+                                RemoveValue(list, value); // Remove the specified value from the list
+                                validInput = true;
+                            } else
+                            {
+                                cout << "\nValue not found in the list. Please try again." << endl;
+                                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
+                            }
+                        } 
+                        else
+                        {
+                            cout << "\nInvalid input. Please enter an integer: ";
+                            cin.clear(); // Clear the error flag
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
                         }
-                        current = current->Next;
-                    }
-                    if (found) 
-                    {
-                        RemoveValue(list, value); // Remove the specified value from the list
-                    } 
-                    else 
-                    {
-                        cout << "Value not found in the list." << endl;
                     }
                 }
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
@@ -196,7 +203,7 @@ int handleDisplayMenu(LinkedList& list)
             {
                 if (list.Head == nullptr)
                 {
-                    cout << "No numbers found to clear in the List." << endl;
+                    cout << "\nNo numbers found to clear in the List." << endl;
                 }
                 else 
                 {
@@ -206,23 +213,21 @@ int handleDisplayMenu(LinkedList& list)
                     if (tolower(confirmation) == 'y')
                     {
                         ClearList(list);// Clear the entire list if confirmed
+                        cout << "\nList is cleared, no more number exist." << endl;
                     }
-                    cout << "List is cleared, no more number exist." << endl;
                 }
-                break;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-
+                break;    
             }
             case 'E':
-                cout << "Exiting program." << endl;// Exit the program
+                cout << "Exiting the current program." << endl;// Exit the program
                 break;
             default:
-                cout << "Invalid choice. Please try again." << endl;// Handle invalid choices
+                cout << "\nInvalid choice. Please try again." << endl;// Handle invalid choices
+                cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
         }
     } while (choice != 'E');// Continue until the user chooses to exit
-
     return 0;// Return 0 upon exiting the menu
-
 }
 
 int main() 
