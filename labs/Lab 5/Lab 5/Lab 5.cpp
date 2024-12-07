@@ -23,7 +23,7 @@ void DisplayMainMenu()
 struct Node 
 {
     int Value = 0;// The value stored in the node
-    Node* Next = nullptr;// Pointer to the next node in the list
+    Node* Next =  nullptr;// Pointer to the next node in the list
 };
 
 /// @brief Structure representing a linked list
@@ -127,15 +127,16 @@ int handleDisplayMenu(LinkedList& list)
                 do {
                     cout << "Enter value to add: ";
                     cin >> value;
-                      while (!(cin >> value))
+                     /* while (!(cin >> value))
                       {
                         cout << "Invalid input. Please enter an integer: ";
                         cin.clear();
                         break;
-                      }
+                      }*/
+                      
                       //else
                       //{
-                      //    AddValue(list, value); // Add the value to the list
+                       AddValue(list, value); // Add the value to the list
                       //    cout << "Do you want to add another number enter 'y'/'Y', otherwise enter any other character: ";
                       //    cin >> addMoreValue;
                       //}
@@ -143,9 +144,9 @@ int handleDisplayMenu(LinkedList& list)
                     cin >> addMoreValue;
                 } while (tolower(addMoreValue) == 'y');
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
-               // break;
+                break;
             }
-            break;
+            //break;
             case 'L':
                 if (list.Head == nullptr) 
                 {
@@ -193,17 +194,20 @@ int handleDisplayMenu(LinkedList& list)
             }
             case 'C':
             {
-                char confirm;
-                cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise enter any other character: ";
-                cin >> confirm;
                 if (list.Head == nullptr)
                 {
                     cout << "No numbers found to clear in the List." << endl;
-
-                    if (tolower(confirm) == 'y')
+                }
+                else 
+                {
+                    char confirmation;
+                    cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise enter any other character: ";
+                    cin >> confirmation;
+                    if (tolower(confirmation) == 'y')
                     {
                         ClearList(list);// Clear the entire list if confirmed
                     }
+                    cout << "List is cleared, no more number exist." << endl;
                 }
                 break;
                 cout << setw(15) << setfill('-') << "" << setfill(' ') << endl;
