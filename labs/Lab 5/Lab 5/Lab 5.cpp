@@ -108,10 +108,8 @@ void ClearList(LinkedList& list)
     list.Head = nullptr; // Set the head to nullptr after clearing the list
 }
 
-/// @brief handleDisplayMenu(); Handles the display menu and user input for the linked list operations
-/// @param LinkedList& list; list Reference to the linked list
-/// @return Returns 0 upon exiting the menu
-//int handleDisplayMenu(LinkedList& list)
+/// @brief; handleDisplayMenu(); Handles the display menu and user input for the linked list operations
+/// @return; Returns int value upon exiting the menu
 int handleDisplayMenu()
 {
     LinkedList list; // Create a separate LinkedList variable
