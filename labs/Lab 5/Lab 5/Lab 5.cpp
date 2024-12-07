@@ -53,6 +53,7 @@ void AddValue(LinkedList& list, int value)
         current->Next = newNode;// Link the new node at the end of the list
     }
 }
+
 /// @brief ListValues(); Prints all values in the linked list
 /// @param LinkedList& ; Reference to the linked list
 void ListValues(const LinkedList& list) 
@@ -230,6 +231,8 @@ int handleDisplayMenu(LinkedList& list)
     return 0;// Return 0 upon exiting the menu
 }
 
+/// @brief; main header with programing title and course info,and also the starting point of the program.
+/// @return;function returns an integer with detail of the choice result. 
 int main() 
 {
     //Display Basic Program Title,Name, Course and Semester
