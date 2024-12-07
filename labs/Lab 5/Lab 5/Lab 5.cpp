@@ -111,8 +111,10 @@ void ClearList(LinkedList& list)
 /// @brief handleDisplayMenu(); Handles the display menu and user input for the linked list operations
 /// @param LinkedList& list; list Reference to the linked list
 /// @return Returns 0 upon exiting the menu
-int handleDisplayMenu(LinkedList& list)
+//int handleDisplayMenu(LinkedList& list)
+int handleDisplayMenu()
 {
+    LinkedList list; // Create a separate LinkedList variable
     char choice;// Variable to store user's menu choice
     do
     {
@@ -244,8 +246,7 @@ int main()
     cout << endl;
 
     //Diplaying message for program starting point
-    LinkedList list;
-    handleDisplayMenu(list);
+    handleDisplayMenu();
     return 0;
 }
 
