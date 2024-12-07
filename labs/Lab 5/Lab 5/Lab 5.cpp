@@ -209,7 +209,7 @@ int handleDisplayMenu()
                 else 
                 {
                     char confirmation;
-                    cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise enter any other character: ";
+                    cout << "Are you sure you want to clear the list? Enter 'y'/'Y', otherwise chose other character to return main menu: ";
                     cin >> confirmation;
                     if (tolower(confirmation) == 'y')
                     {
